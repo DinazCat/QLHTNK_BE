@@ -23,7 +23,7 @@ namespace QLHTNK_BE.Models
         public virtual DbSet<ChiTietThanhToan> ChiTietThanhToans { get; set; } = null!;
         public virtual DbSet<DichVu> DichVus { get; set; } = null!;
         public virtual DbSet<DichVuDaSuDung> DichVuDaSuDungs { get; set; } = null!;
-        public virtual DbSet<GiamGium> GiamGia { get; set; } = null!;
+        public virtual DbSet<GiamGia> GiamGia { get; set; } = null!;
         public virtual DbSet<HoaDon> HoaDons { get; set; } = null!;
         public virtual DbSet<LichHen> LichHens { get; set; } = null!;
         public virtual DbSet<NhanVien> NhanViens { get; set; } = null!;
@@ -241,7 +241,7 @@ namespace QLHTNK_BE.Models
                     .HasConstraintName("FK__DichVuDaSu__MaDV__5629CD9C");
             });
 
-            modelBuilder.Entity<GiamGium>(entity =>
+            modelBuilder.Entity<GiamGia>(entity =>
             {
                 entity.HasKey(e => e.MaGiamGia)
                     .HasName("PK__GiamGia__EF9458E4BA4D07E4");

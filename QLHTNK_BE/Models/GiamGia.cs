@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace QLHTNK_BE.Models
 {
-    public partial class GiamGium
+    public partial class GiamGia
     {
-        public GiamGium()
+        public GiamGia()
         {
             HoaDons = new HashSet<HoaDon>();
         }

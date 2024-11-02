@@ -19,7 +19,7 @@ namespace QLHTNK_BE.Models
 
         public virtual BenhNhan? MaBnNavigation { get; set; }
         public virtual ChiTietHsdt? MaCthsdtNavigation { get; set; }
-        public virtual GiamGium? MaGiamGiaNavigation { get; set; }
+        public virtual GiamGia? MaGiamGiaNavigation { get; set; }
         public virtual NhanVien? MaNvNavigation { get; set; }
     }
 }
