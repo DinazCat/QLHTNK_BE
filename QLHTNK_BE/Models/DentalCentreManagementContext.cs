@@ -23,7 +23,7 @@ namespace QLHTNK_BE.Models
         public virtual DbSet<ChiTietThanhToan> ChiTietThanhToans { get; set; } = null!;
         public virtual DbSet<DichVu> DichVus { get; set; } = null!;
         public virtual DbSet<DichVuDaSuDung> DichVuDaSuDungs { get; set; } = null!;
-        public virtual DbSet<GiamGia> GiamGia { get; set; } = null!;
+        public virtual DbSet<GiamGia> GiamGias { get; set; } = null!;
         public virtual DbSet<HoaDon> HoaDons { get; set; } = null!;
         public virtual DbSet<LichHen> LichHens { get; set; } = null!;
         public virtual DbSet<NhanVien> NhanViens { get; set; } = null!;
@@ -281,6 +281,8 @@ namespace QLHTNK_BE.Models
                 entity.Property(e => e.MaCthsdt).HasColumnName("MaCTHSDT");
 
                 entity.Property(e => e.MaNv).HasColumnName("MaNV");
+
+                entity.Property(e => e.NgayLap).HasMaxLength(10);
 
                 entity.Property(e => e.PhanTramGiam).HasColumnType("decimal(5, 2)");
 

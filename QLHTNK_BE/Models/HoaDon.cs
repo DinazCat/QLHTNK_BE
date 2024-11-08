@@ -10,6 +10,7 @@ namespace QLHTNK_BE.Models
         public int? MaNv { get; set; }
         public int? MaCthsdt { get; set; }
         public int? MaGiamGia { get; set; }
+        public string? NgayLap { get; set; }
         public decimal? SoTienGiam { get; set; }
         public decimal? PhanTramGiam { get; set; }
         public string? LyDoGiam { get; set; }
