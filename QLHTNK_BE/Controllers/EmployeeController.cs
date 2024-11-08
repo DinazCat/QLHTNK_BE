@@ -115,4 +115,69 @@ public class EmployeeController : ControllerBase
             return StatusCode(500, new { Message = "An error occurred while deleting the employee.", Error = ex.Message });
         }
     }
+
+    // Get employees by search criteria
+    [HttpGet("search")]
+    public async Task<IActionResult> GetEmployeesBySearch(
+        [FromQuery] int? maNhanVien = null,
+        [FromQuery] string? tenNhanVien = "",
+        [FromQuery] string? chucVu = "Tất cả",
+        [FromQuery] string? chiNhanh = "Tất cả",
+        [FromQuery] decimal? luongDau = null,
+        [FromQuery] decimal? luongCuoi = null)
+    {
+        try
+        {
+            // Bắt đầu với toàn bộ dữ liệu
+            IQueryable<NhanVien> query = _context.NhanViens;
+
+            // Lọc theo MaNv nếu có
+            if (maNhanVien.HasValue)
+            {
+                query = query.Where(nv => nv.MaNv == maNhanVien.Value);
+            }
+
+            // Lọc theo tenNhanVien nếu không trống
+            if (!string.IsNullOrWhiteSpace(tenNhanVien))
+            {
+                string normalizedTen = tenNhanVien.Trim().ToLower();
+                query = query.Where(nv => nv.TenNv.ToLower().Contains(normalizedTen));
+            }
+
+            // Lọc theo chucVu nếu không phải "Tất cả"
+            if (!string.Equals(chucVu, "Tất cả", StringComparison.OrdinalIgnoreCase))
+            {
+                query = query.Where(nv => nv.ChucVu == chucVu);
+            }
+
+            // Lọc theo chiNhanh nếu không phải "Tất cả"
+            if (!string.Equals(chiNhanh, "Tất cả", StringComparison.OrdinalIgnoreCase))
+            {
+                query = query.Where(nv => nv.MaChiNhanhNavigation.TenCn == chiNhanh);
+            }
+
+            // Lọc theo luongCoBan
+            if (luongDau.HasValue && luongCuoi.HasValue)
+            {
+                query = query.Where(nv => nv.LuongCoBan >= luongDau.Value && nv.LuongCoBan <= luongCuoi.Value);
+            }
+            else if (luongDau.HasValue)
+            {
+                query = query.Where(nv => nv.LuongCoBan >= luongDau.Value);
+            }
+            else if (luongCuoi.HasValue)
+            {
+                query = query.Where(nv => nv.LuongCoBan <= luongCuoi.Value);
+            }
+
+            // Sắp xếp theo MaNv
+            var searchResults = await query.OrderBy(nv => nv.MaNv).ToListAsync();
+
+            return Ok(new { success = true, staffs = searchResults });
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { success = false, message = "An error occurred while searching for employees.", Error = ex.Message });
+        }
+    }
 }

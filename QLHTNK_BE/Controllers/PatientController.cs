@@ -115,4 +115,50 @@ public class PatientController : ControllerBase
             return StatusCode(500, new { Message = "An error occurred while deleting the patient.", Error = ex.Message });
         }
     }
+
+    // Get patients by search criteria
+    [HttpGet("search")]
+    public async Task<IActionResult> GetPatientsBySearch(
+    [FromQuery] int? maBn = null,
+    [FromQuery] string? tenBn = null,
+    [FromQuery] string? soDienThoai = null,
+    [FromQuery] string? cccd = null)
+    {
+        try
+        {
+            // Start with the full set of patients
+            var query = _context.BenhNhans.AsQueryable();
+
+            // Apply filters based on provided criteria
+            if (maBn.HasValue)
+            {
+                query = query.Where(bn => bn.MaBn == maBn.Value);
+            }
+
+            if (!string.IsNullOrEmpty(tenBn))
+            {
+                query = query.Where(bn => bn.TenBn.Contains(tenBn));
+            }
+
+            if (!string.IsNullOrEmpty(soDienThoai))
+            {
+                query = query.Where(bn => bn.SoDienThoai.Contains(soDienThoai));
+            }
+
+            if (!string.IsNullOrEmpty(cccd))
+            {
+                query = query.Where(bn => bn.Cccd.Contains(cccd));
+            }
+
+            // Execute the query and sort by MaBn
+            var patients = await query.OrderBy(bn => bn.MaBn).ToListAsync();
+
+            return Ok(new { Success = true, Patients = patients });
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { Success = false, Message = "An error occurred while fetching patients.", Error = ex.Message });
+        }
+    }
+
 }

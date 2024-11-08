@@ -115,4 +115,38 @@ public class BranchController : ControllerBase
             return StatusCode(500, new { Message = "An error occurred while deleting the branch.", Error = ex.Message });
         }
     }
+
+    // Get branches by search criteria
+    [HttpGet("search")]
+    public async Task<IActionResult> GetBranchsBySearch([FromQuery] string maChiNhanh, [FromQuery] string tenChiNhanh)
+    {
+        try
+        {
+            // Fetch all branches
+            var branchesQuery = _context.ChiNhanhs.AsQueryable();
+
+            // Filter by maChiNhanh
+            if (!string.IsNullOrEmpty(maChiNhanh))
+            {
+                branchesQuery = branchesQuery.Where(b => b.MaCn.ToString().Contains(maChiNhanh));
+            }
+
+            // Filter by tenChiNhanh
+            if (!string.IsNullOrEmpty(tenChiNhanh))
+            {
+                branchesQuery = branchesQuery.Where(b => b.TenCn.ToLower().Contains(tenChiNhanh.ToLower()));
+            }
+
+            // Execute the query
+            var branches = await branchesQuery.ToListAsync();
+
+            // Return the filtered and sorted result
+            return Ok(branches.OrderBy(b => b.MaCn)); 
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { Message = "An error occurred while fetching branches.", Error = ex.Message });
+        }
+    }
+
 }

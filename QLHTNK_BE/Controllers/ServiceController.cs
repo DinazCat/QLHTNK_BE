@@ -115,4 +115,63 @@ public class ServiceController : ControllerBase
             return StatusCode(500, new { Message = "An error occurred while deleting the service.", Error = ex.Message });
         }
     }
+
+    // Get services by search criteria
+    [HttpGet("search")]
+    public async Task<IActionResult> GetServicesBySearch(
+        [FromQuery]  int? maDv = null,
+        [FromQuery]  string? tenDv = null,
+        [FromQuery] string? loaiDv = null,
+        [FromQuery] decimal? giaDau = null,
+        [FromQuery] decimal? giaCuoi = null)
+    {
+        try
+        {
+            // Start with the full set of services
+            var query = _context.DichVus.AsQueryable();
+
+            // Apply filters based on provided criteria
+            if (maDv.HasValue)
+            {
+                query = query.Where(dv => dv.MaDv == maDv.Value);
+            }
+
+            if (!string.IsNullOrEmpty(tenDv))
+            {
+                query = query.Where(dv => dv.TenDv.Contains(tenDv));
+            }
+
+            if (!string.IsNullOrEmpty(loaiDv))
+            {
+                query = query.Where(dv => dv.LoaiDv.Contains(loaiDv));
+            }
+
+            // Filter for price range (GiaThapNhat <= giaDau <= GiaCaoNhat)
+            if (giaDau.HasValue || giaCuoi.HasValue)
+            {
+                if (giaDau.HasValue && !giaCuoi.HasValue)
+                {
+                    query = query.Where(dv => dv.GiaThapNhat >= giaDau.Value);
+                }
+                else if (giaCuoi.HasValue && !giaDau.HasValue)
+                {
+                    query = query.Where(dv => dv.GiaCaoNhat <= giaCuoi.Value);
+                }
+                else if (giaDau.HasValue && giaCuoi.HasValue)
+                {
+                    query = query.Where(dv => dv.GiaThapNhat >= giaDau.Value && dv.GiaCaoNhat <= giaCuoi.Value);
+                }
+            }
+
+            // Execute the query and sort by MaDv
+            var services = await query.OrderBy(dv => dv.MaDv).ToListAsync();
+
+            return Ok(new { Success = true, Services = services });
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { Success = false, Message = "An error occurred while fetching services.", Error = ex.Message });
+        }
+    }
+
 }

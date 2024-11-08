@@ -118,6 +118,81 @@ public class InventoryController : ControllerBase
         }
     }
 
+    // Get medicines by search criteria
+    [HttpGet("medicine/search")]
+    public async Task<IActionResult> GetMedicinesBySearch(
+    string? maThuoc = null,
+    string? tenThuoc = null,
+    int? slnDau = null,
+    int? slnCuoi = null,
+    int? sltkDau = null,
+    int? sltkCuoi = null,
+    decimal? giaNhapDau = null,
+    decimal? giaNhapCuoi = null,
+    decimal? giaDau = null,
+    decimal? giaCuoi = null,
+    string? hsdDau = null,
+    string? hsdCuoi = null,
+    string? ngayDau = null,
+    string? ngayCuoi = null,
+    int? chiNhanh = null)
+    {
+        try
+        {
+            var query = _context.Thuocs.AsQueryable();
+
+            if (!string.IsNullOrEmpty(maThuoc))
+                query = query.Where(t => t.MaThuoc.ToString().Contains(maThuoc));
+
+            if (!string.IsNullOrEmpty(tenThuoc))
+                query = query.Where(t => t.TenThuoc != null && t.TenThuoc.Contains(tenThuoc, StringComparison.OrdinalIgnoreCase));
+
+            if (slnDau.HasValue)
+                query = query.Where(t => t.SoLuongNhap >= slnDau.Value);
+            if (slnCuoi.HasValue)
+                query = query.Where(t => t.SoLuongNhap <= slnCuoi.Value);
+
+            if (sltkDau.HasValue)
+                query = query.Where(t => t.SoLuongTonKho >= sltkDau.Value);
+            if (sltkCuoi.HasValue)
+                query = query.Where(t => t.SoLuongTonKho <= sltkCuoi.Value);
+
+            if (giaNhapDau.HasValue)
+                query = query.Where(t => t.DonGiaNhap >= giaNhapDau.Value);
+            if (giaNhapCuoi.HasValue)
+                query = query.Where(t => t.DonGiaNhap <= giaNhapCuoi.Value);
+
+            if (giaDau.HasValue)
+                query = query.Where(t => t.DonGiaBan >= giaDau.Value);
+            if (giaCuoi.HasValue)
+                query = query.Where(t => t.DonGiaBan <= giaCuoi.Value);
+
+            if (chiNhanh.HasValue)
+                query = query.Where(t => t.MaChiNhanh == chiNhanh.Value);
+
+            if (DateTime.TryParse(hsdDau, out var parsedHsdDau))
+                query = query.Where(t => DateTime.Parse(t.HanSuDung) >= parsedHsdDau);
+
+            if (DateTime.TryParse(hsdCuoi, out var parsedHsdCuoi))
+                query = query.Where(t => DateTime.Parse(t.HanSuDung) <= parsedHsdCuoi);
+
+            if (DateTime.TryParse(ngayDau, out var parsedNgayDau))
+                query = query.Where(t => DateTime.Parse(t.NgayNhap) >= parsedNgayDau);
+
+            if (DateTime.TryParse(ngayCuoi, out var parsedNgayCuoi))
+                query = query.Where(t => DateTime.Parse(t.NgayNhap) <= parsedNgayCuoi);
+
+
+            var medicines = await query.ToListAsync();
+            return Ok(medicines);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { Message = "An error occurred while fetching medicines.", Error = ex.Message });
+        }
+    }
+
+
     // CRUD operations for VatTu (Supplies)
 
     // Create a new supply item
@@ -218,6 +293,80 @@ public class InventoryController : ControllerBase
         catch (Exception ex)
         {
             return StatusCode(500, new { Message = "An error occurred while deleting the supply.", Error = ex.Message });
+        }
+    }
+
+    // Get supplies by search criteria
+    [HttpGet("supply/search")]
+    public async Task<IActionResult> GetSuppliesBySearch(
+    [FromQuery] int? maVt = null,
+    [FromQuery] string? tenVt = null,
+    [FromQuery] int? slnDau = null,
+    [FromQuery] int? slnCuoi = null,
+    [FromQuery] int? sltkDau = null,
+    [FromQuery] int? sltkCuoi = null,
+    [FromQuery] decimal? giaDau = null,
+    [FromQuery] decimal? giaCuoi = null,
+    [FromQuery] string? ngayDau = null,
+    [FromQuery] string? ngayCuoi = null,
+    [FromQuery] int? maChiNhanh = null)
+    {
+        try
+        {
+            // Initialize query with the full collection
+            var query = _context.VatTus.AsQueryable();
+
+            // Apply filters
+            if (maVt.HasValue)
+            {
+                query = query.Where(vt => vt.MaVt == maVt.Value);
+            }
+
+            if (!string.IsNullOrEmpty(tenVt))
+            {
+                query = query.Where(vt => vt.TenVt.Contains(tenVt));
+            }
+
+            if (slnDau.HasValue || slnCuoi.HasValue)
+            {
+                query = query.Where(vt => (!slnDau.HasValue || vt.SoLuongNhap >= slnDau) &&
+                                          (!slnCuoi.HasValue || vt.SoLuongNhap <= slnCuoi));
+            }
+
+            if (sltkDau.HasValue || sltkCuoi.HasValue)
+            {
+                query = query.Where(vt => (!sltkDau.HasValue || vt.SoLuongTonKho >= sltkDau) &&
+                                          (!sltkCuoi.HasValue || vt.SoLuongTonKho <= sltkCuoi));
+            }
+
+            if (giaDau.HasValue || giaCuoi.HasValue)
+            {
+                query = query.Where(vt => (!giaDau.HasValue || vt.DonGiaNhap >= giaDau) &&
+                                          (!giaCuoi.HasValue || vt.DonGiaNhap <= giaCuoi));
+            }
+
+            if (!string.IsNullOrEmpty(ngayDau) || !string.IsNullOrEmpty(ngayCuoi))
+            {
+                DateTime? ngayDauDate = !string.IsNullOrEmpty(ngayDau) ? DateTime.Parse(ngayDau) : (DateTime?)null;
+                DateTime? ngayCuoiDate = !string.IsNullOrEmpty(ngayCuoi) ? DateTime.Parse(ngayCuoi) : (DateTime?)null;
+
+                query = query.Where(vt => (!ngayDauDate.HasValue || DateTime.Parse(vt.NgayNhap) >= ngayDauDate) &&
+                                          (!ngayCuoiDate.HasValue || DateTime.Parse(vt.NgayNhap) <= ngayCuoiDate));
+            }
+
+            if (maChiNhanh.HasValue)
+            {
+                query = query.Where(vt => vt.MaChiNhanh == maChiNhanh.Value);
+            }
+
+            // Sort results by MaVt
+            var materials = await query.OrderBy(vt => vt.MaVt).ToListAsync();
+
+            return Ok(new { Success = true, Materials = materials });
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { Success = false, Message = "An error occurred while fetching materials.", Error = ex.Message });
         }
     }
 }

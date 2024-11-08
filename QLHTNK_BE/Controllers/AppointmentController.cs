@@ -116,4 +116,71 @@ public class AppointmentController : ControllerBase
             return StatusCode(500, new { Message = "An error occurred while deleting the appointment.", Error = ex.Message });
         }
     }
+
+    // Get appointments by search criteria
+    [HttpGet("search")]
+    public async Task<IActionResult> GetAppointmentsBySearch(
+        [FromQuery] string MaNS, 
+        [FromQuery] string SDT, 
+        [FromQuery] string TenNS, 
+        [FromQuery] string TenBN, 
+        [FromQuery] string DichVu, 
+        [FromQuery] string NgayHen)
+    {
+        try
+        {
+            // Fetch all appointments
+            var appointmentsQuery = _context.LichHens.AsQueryable();
+
+            // Filter by MaNS (staff ID)
+            if (!string.IsNullOrEmpty(MaNS))
+            {
+                appointmentsQuery = appointmentsQuery.Where(a => a.MaNs.ToString().Contains(MaNS));
+            }
+
+            // Filter by TenNS (staff name)
+            if (!string.IsNullOrEmpty(TenNS))
+            {
+                appointmentsQuery = appointmentsQuery.Where(a => a.MaNsNavigation.TenNv.ToLower().Contains(TenNS.ToLower()));
+            }
+
+            // Filter by SDT (phone number)
+            if (!string.IsNullOrEmpty(SDT))
+            {
+                appointmentsQuery = appointmentsQuery.Where(a => a.SoDienThoai.Contains(SDT));
+            }
+
+            // Filter by TenBN (patient name)
+            if (!string.IsNullOrEmpty(TenBN))
+            {
+                appointmentsQuery = appointmentsQuery.Where(a => a.MaBnNavigation.TenBn.ToLower().Contains(TenBN.ToLower()));
+            }
+
+            // Filter by DichVu (service)
+            if (!string.IsNullOrEmpty(DichVu))
+            {
+                appointmentsQuery = appointmentsQuery.Where(a => a.LyDoKham.ToLower().Contains(DichVu.ToLower()));
+            }
+
+            // Filter by NgayHen (appointment date)
+            if (!string.IsNullOrEmpty(NgayHen))
+            {
+                appointmentsQuery = appointmentsQuery.Where(a => a.Ngay == NgayHen);
+            }
+
+            // Execute the query
+            var appointments = await appointmentsQuery.ToListAsync();
+
+            // Sort the appointments based on appointment date and time (descending)
+            var sortedAppointments = appointments.OrderByDescending(a => a.Ngay).ThenByDescending(a => a.Gio).ToList();
+
+            // Return the filtered and sorted result
+            return Ok(sortedAppointments);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { Message = "An error occurred while fetching appointments.", Error = ex.Message });
+        }
+    }
+
 }
