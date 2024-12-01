@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using QLHTNK_BE.Models;
 using System;
+using System.Security.Principal;
 using System.Threading.Tasks;
 
 [ApiController]
@@ -26,6 +29,31 @@ public class EmployeeController : ControllerBase
         {
             _context.NhanViens.Add(employee);
             await _context.SaveChangesAsync();
+            DateTime birthDate = DateTime.Parse(employee?.NgaySinh);
+
+            // Tính năm sinh
+            int birthYear = birthDate.Year;
+
+            // Lấy năm hiện tại
+            int currentYear = DateTime.Now.Year;
+
+            // Tính tuổi
+            int age = currentYear - birthYear;
+
+            TaiKhoan acc = new()
+            {
+                MaNguoiDung = employee?.Cccd,
+                Ten = employee?.TenNv,
+                SoDienThoai = employee?.SoDienThoai,
+                Tuoi = age,
+                Email = employee?.Email,
+                MatKhau = "123456",
+                LoaiNguoiDung = employee?.ChucVu,
+                XacNhan = 1,
+                MaNV = employee?.MaNv
+            };
+            _context.TaiKhoans.Add(acc);
+            await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetEmployeeById), new { id = employee.MaNv }, employee);
         }
         catch (Exception ex)
@@ -40,7 +68,9 @@ public class EmployeeController : ControllerBase
     {
         try
         {
-            var employees = await _context.NhanViens.ToListAsync();
+            var employees = await _context.NhanViens
+            .Where(e => e.An != true)
+            .ToListAsync();
             return Ok(employees);
         }
         catch (Exception ex)
@@ -81,7 +111,33 @@ public class EmployeeController : ControllerBase
         {
             _context.Entry(employee).State = EntityState.Modified;
             await _context.SaveChangesAsync();
-            return NoContent();
+
+            var existingAccount = await _context.TaiKhoans.FirstOrDefaultAsync(acc => acc.MaNV == employee.MaNv);
+
+            if (existingAccount != null)
+            {
+                DateTime birthDate = DateTime.Parse(employee?.NgaySinh);
+
+                // Tính năm sinh
+                int birthYear = birthDate.Year;
+
+                // Lấy năm hiện tại
+                int currentYear = DateTime.Now.Year;
+
+                // Tính tuổi
+                int age = currentYear - birthYear;
+                // Cập nhật các giá trị
+                existingAccount.MaNguoiDung = employee?.Cccd;
+                existingAccount.Ten = employee?.TenNv;
+                existingAccount.SoDienThoai = employee?.SoDienThoai;
+                existingAccount.Tuoi = age;
+                existingAccount.LoaiNguoiDung = employee?.ChucVu;
+                existingAccount.Email = employee?.Email;
+
+                // Lưu thay đổi
+                await _context.SaveChangesAsync();
+            }
+            return CreatedAtAction(nameof(GetEmployeeById), new { id = employee.MaNv }, employee);
         }
         catch (DbUpdateConcurrencyException)
         {
@@ -105,10 +161,18 @@ public class EmployeeController : ControllerBase
             var employee = await _context.NhanViens.FindAsync(id);
             if (employee == null)
                 return NotFound(new { Message = "Employee not found." });
-
-            _context.NhanViens.Remove(employee);
+            var user = await _context.TaiKhoans.FirstOrDefaultAsync(x => x.MaNguoiDung == employee.Cccd);
+            if (user == null)
+                return NotFound(new { Message = "User not found." });
+            //xóa tài khoản, xóa mềm employee
+            employee.An = true;
+            _context.Entry(employee).State = EntityState.Modified;
+            _context.TaiKhoans.Remove(user);
             await _context.SaveChangesAsync();
-            return NoContent();
+
+            //_context.NhanViens.Remove(employee);
+            //await _context.SaveChangesAsync();
+            return Ok(new { Message = "Employee deleted successfully." });
         }
         catch (Exception ex)
         {
@@ -171,7 +235,7 @@ public class EmployeeController : ControllerBase
             }
 
             // Sắp xếp theo MaNv
-            var searchResults = await query.OrderBy(nv => nv.MaNv).ToListAsync();
+            var searchResults = await query.OrderBy(nv => nv.MaNv).Where(e => e.An != true).ToListAsync();
 
             return Ok(new { success = true, staffs = searchResults });
         }

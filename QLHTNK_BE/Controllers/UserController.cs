@@ -1,11 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QLHTNK_BE.Models;
 using System;
+using System.Data;
 using System.Threading.Tasks;
+
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
+//[Authorize]
 public class UserController : ControllerBase
 {
     private readonly DentalCentreManagementContext _context;
@@ -16,6 +21,7 @@ public class UserController : ControllerBase
     }
 
     // Create a new user
+    [Authorize(Roles = "ChuHeThong")]
     [HttpPost]
     public async Task<IActionResult> CreateUser([FromBody] TaiKhoan user)
     {
@@ -51,9 +57,9 @@ public class UserController : ControllerBase
 
     // Read a specific user by ID
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetUserById(int id)
+    public async Task<IActionResult> GetUserById(string id)
     {
-        if (id <= 0)
+        if (id == "")
             return BadRequest(new { Message = "Invalid user ID." });
 
         try
@@ -72,9 +78,9 @@ public class UserController : ControllerBase
 
     // Update a user
     [HttpPut("{id}")]
-    public async Task<IActionResult> UpdateUser(int id, [FromBody] TaiKhoan user)
+    public async Task<IActionResult> UpdateUser(string id, [FromBody] TaiKhoan user)
     {
-        if (id <= 0 || user == null || id != user.MaTk)
+        if (id == "" || user == null || id != user.MaTk)
             return BadRequest(new { Message = "Invalid data provided." });
 
         try
@@ -94,10 +100,11 @@ public class UserController : ControllerBase
     }
 
     // Delete a user
+    [Authorize(Roles = "ChuHeThong")]
     [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteUser(int id)
+    public async Task<IActionResult> DeleteUser(string id)
     {
-        if (id <= 0)
+        if (id == "")
             return BadRequest(new { Message = "Invalid user ID." });
 
         try
