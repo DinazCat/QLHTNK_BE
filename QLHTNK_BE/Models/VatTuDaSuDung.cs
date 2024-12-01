@@ -9,6 +9,7 @@ namespace QLHTNK_BE.Models
         public int? MaChiNhanh { get; set; }
         public string? NgaySuDung { get; set; }
         public int? SoLuong { get; set; }
+        public bool? An { get; set; }
 
         public virtual ChiNhanh? MaChiNhanhNavigation { get; set; }
         public virtual VatTu? MaVatTuNavigation { get; set; }

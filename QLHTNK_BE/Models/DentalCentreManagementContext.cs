@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace QLHTNK_BE.Models
 {
-    public partial class DentalCentreManagementContext : DbContext
+    public partial class DentalCentreManagementContext : IdentityDbContext<TaiKhoan>
     {
         public DentalCentreManagementContext()
         {
@@ -33,6 +35,7 @@ namespace QLHTNK_BE.Models
         public virtual DbSet<ThuocDaKe> ThuocDaKes { get; set; } = null!;
         public virtual DbSet<VatTu> VatTus { get; set; } = null!;
         public virtual DbSet<VatTuDaSuDung> VatTuDaSuDungs { get; set; } = null!;
+        public virtual DbSet<LuongThuong> LuongThuongs { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -45,6 +48,11 @@ namespace QLHTNK_BE.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<IdentityUserRole<string>>().HasNoKey();
+            modelBuilder.Entity<IdentityUserClaim<string>>().HasNoKey();
+            modelBuilder.Entity<IdentityUserLogin<string>>().HasNoKey();
+            modelBuilder.Entity<IdentityUserToken<string>>().HasNoKey();
+            modelBuilder.Entity<IdentityRoleClaim<string>>().HasNoKey();
             modelBuilder.Entity<AnhSauDieuTri>(entity =>
             {
                 entity.HasKey(e => e.MaAnh)
@@ -342,6 +350,20 @@ namespace QLHTNK_BE.Models
                     .HasForeignKey(d => d.MaNs)
                     .HasConstraintName("FK__LichHen__MaNS__398D8EEE");
             });
+            modelBuilder.Entity<LuongThuong>().ToTable("LuongThuong");
+            modelBuilder.Entity<LuongThuong>(entity =>
+            {
+                entity.HasKey(e => e.MaLT);
+                entity.Property(e => e.LoaiLT).HasMaxLength(255).IsRequired();
+                entity.Property(e => e.LoaiNV).HasMaxLength(255).IsRequired();
+                entity.Property(e => e.Tien).HasColumnType("decimal(18, 2)").IsRequired();
+                entity.Property(e => e.An).HasDefaultValueSql("((0))");
+                entity.Property(e => e.MaNV);
+                entity.Property(e => e.MaCN);
+                entity.Property(e => e.Nam);
+                entity.Property(e => e.Thang);
+                entity.Property(e => e.GhiChu);
+            });
 
             modelBuilder.Entity<NhanVien>(entity =>
             {
@@ -350,7 +372,9 @@ namespace QLHTNK_BE.Models
 
                 entity.ToTable("NhanVien");
 
-                entity.Property(e => e.MaNv).HasColumnName("MaNV");
+                entity.Property(e => e.MaNv)
+                    .HasColumnName("MaNV")
+                    .ValueGeneratedOnAdd();
 
                 entity.Property(e => e.An).HasDefaultValueSql("((0))");
 
@@ -404,15 +428,36 @@ namespace QLHTNK_BE.Models
                     .HasForeignKey(d => d.MaBn)
                     .HasConstraintName("FK__PhanHoi__MaBN__35BCFE0A");
             });
-
             modelBuilder.Entity<TaiKhoan>(entity =>
             {
+                entity.Ignore(u => u.UserName);
+                entity.Ignore(u => u.Email);
+                entity.Ignore(u => u.NormalizedEmail);
+                entity.Ignore(u => u.NormalizedUserName);
+                entity.Ignore(u => u.LockoutEnabled);
+                entity.Ignore(u => u.LockoutEnd);
+                entity.Ignore(u => u.AccessFailedCount);
+                entity.Ignore(u => u.TwoFactorEnabled);
+                entity.Ignore(u => u.PasswordHash);
+                entity.Ignore(u => u.PhoneNumber);
+                entity.Ignore(u => u.PhoneNumberConfirmed);
+                entity.Ignore(u => u.SecurityStamp);
+                entity.Ignore(u => u.EmailConfirmed);
+                entity.Ignore(u => u.ConcurrencyStamp);
+                entity.Ignore(u => u.Id);
                 entity.HasKey(e => e.MaTk)
                     .HasName("PK__TaiKhoan__272500702B3A2AE1");
 
                 entity.ToTable("TaiKhoan");
 
-                entity.Property(e => e.MaTk).HasColumnName("MaTK");
+                entity.Property(e => e.MaTk)
+                    .HasColumnName("MaTK")
+                    .HasDefaultValueSql("NEWID()"); // Tạo UUID mặc định cho MaTk
+                entity.Property(e => e.XacNhan)
+                    .HasColumnName("XacNhan")
+                    .HasDefaultValue(0);
+                entity.Property(e => e.Token).HasColumnName("Token");
+                entity.Property(e => e.MaNguoiDung).HasMaxLength(12);
 
                 entity.Property(e => e.Email).HasMaxLength(100);
 
@@ -423,6 +468,7 @@ namespace QLHTNK_BE.Models
                 entity.Property(e => e.SoDienThoai).HasMaxLength(15);
 
                 entity.Property(e => e.Ten).HasMaxLength(100);
+                entity.Property(e => e.MaNV);
             });
 
             modelBuilder.Entity<Thuoc>(entity =>
@@ -509,7 +555,7 @@ namespace QLHTNK_BE.Models
                 entity.ToTable("VatTuDaSuDung");
 
                 entity.Property(e => e.NgaySuDung).HasMaxLength(10);
-
+                entity.Property(e => e.An).HasDefaultValueSql("((0))");
                 entity.HasOne(d => d.MaChiNhanhNavigation)
                     .WithMany()
                     .HasForeignKey(d => d.MaChiNhanh)
