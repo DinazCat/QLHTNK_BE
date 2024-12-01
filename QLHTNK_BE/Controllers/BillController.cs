@@ -7,11 +7,11 @@ using QLHTNK_BE.Models;
 
 [ApiController]
 [Route("api/[controller]")]
-public class HoaDonController : ControllerBase
+public class BillController : ControllerBase
 {
     private readonly DentalCentreManagementContext _context;
 
-    public HoaDonController(DentalCentreManagementContext context)
+    public BillController(DentalCentreManagementContext context)
     {
         _context = context;
     }
