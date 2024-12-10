@@ -5,6 +5,7 @@ namespace QLHTNK_BE.Models
 {
     public partial class ThuocDaKe
     {
+        public int? MaTDK { get; set; }
         public int? MaCthsdt { get; set; }
         public int? MaThuoc { get; set; }
         public int? SoLuong { get; set; }

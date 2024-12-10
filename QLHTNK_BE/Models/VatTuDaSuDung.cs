@@ -5,6 +5,7 @@ namespace QLHTNK_BE.Models
 {
     public partial class VatTuDaSuDung
     {
+        public int MaVTDSD { get; set; }
         public int? MaVatTu { get; set; }
         public int? MaChiNhanh { get; set; }
         public string? NgaySuDung { get; set; }

@@ -5,6 +5,7 @@ namespace QLHTNK_BE.Models
 {
     public partial class ChiTietThanhToan
     {
+        public int MaCTTT { get; set; }
         public int? MaHd { get; set; }
         public string? NgayThanhToan { get; set; }
         public decimal? SoTienThanhToan { get; set; }

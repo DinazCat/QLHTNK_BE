@@ -48,7 +48,6 @@ public class PatientController : ControllerBase
             return StatusCode(500, new { Message = "An error occurred while fetching patients.", Error = ex.Message });
         }
     }
-
     // Read a specific patient by ID
     [HttpGet("{id}")]
     public async Task<IActionResult> GetPatientById(int id)
@@ -58,7 +57,28 @@ public class PatientController : ControllerBase
 
         try
         {
-            var patient = await _context.BenhNhans.FindAsync(id);
+            var patient = await _context.BenhNhans.FirstOrDefaultAsync(x => x.MaBn == id);
+            if (patient == null)
+                return NotFound(new { Message = "Patient not found." });
+
+            return Ok(patient);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { Message = "An error occurred while fetching the patient.", Error = ex.Message });
+        }
+    }
+
+    // Read a specific patient by ID
+    [HttpGet("{cccd}")]
+    public async Task<IActionResult> GetPatientById(string cccd)
+    {
+        if (cccd == "")
+            return BadRequest(new { Message = "Invalid patient ID." });
+
+        try
+        {
+            var patient = await _context.BenhNhans.FirstOrDefaultAsync(x => x.Cccd == cccd);
             if (patient == null)
                 return NotFound(new { Message = "Patient not found." });
 
@@ -81,7 +101,7 @@ public class PatientController : ControllerBase
         {
             _context.Entry(patient).State = EntityState.Modified;
             await _context.SaveChangesAsync();
-            return NoContent();
+            return CreatedAtAction(nameof(GetPatientById), new { id = patient.MaBn }, patient);
         }
         catch (DbUpdateConcurrencyException)
         {
@@ -105,10 +125,15 @@ public class PatientController : ControllerBase
             var patient = await _context.BenhNhans.FindAsync(id);
             if (patient == null)
                 return NotFound(new { Message = "Patient not found." });
+            var cthsdt = await _context.ChiTietHsdts.FirstOrDefaultAsync(x => x.MaBn == id);
+            if (cthsdt == null)
+            {
+                _context.BenhNhans.Remove(patient);
+                await _context.SaveChangesAsync();
+                return Ok(new { Message = "Patient deleted successfully." });
+            }
+            return BadRequest(new { Message = "This patient cannot be deleted because of being treated." });
 
-            _context.BenhNhans.Remove(patient);
-            await _context.SaveChangesAsync();
-            return NoContent();
         }
         catch (Exception ex)
         {
@@ -160,117 +185,5 @@ public class PatientController : ControllerBase
             return StatusCode(500, new { Success = false, Message = "An error occurred while fetching patients.", Error = ex.Message });
         }
     }
-
-    // Add a new treatment record (ChiTietHsdt)
-    [HttpPost("add-treatment-detail")]
-    public async Task<IActionResult> AddTreatmentDetail([FromBody] ChiTietHsdt treatmentDetail)
-    {
-        if (treatmentDetail == null)
-            return BadRequest(new { Message = "Invalid treatment detail data." });
-
-        try
-        {
-            // Check if patient exists
-            var patient = await _context.BenhNhans.FindAsync(treatmentDetail.MaBn);
-            if (patient == null)
-                return NotFound(new { Message = "Patient not found." });
-
-            _context.ChiTietHsdts.Add(treatmentDetail);
-            await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetTreatmentDetailById), new { id = treatmentDetail.MaCthsdt }, treatmentDetail);
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, new { Message = "An error occurred while adding the treatment detail.", Error = ex.Message });
-        }
-    }
-
-    // Get treatment detail by ID
-    [HttpGet("treatment-detail/{id}")]
-    public async Task<IActionResult> GetTreatmentDetailById(int id)
-    {
-        try
-        {
-            var treatmentDetail = await _context.ChiTietHsdts.FindAsync(id);
-            if (treatmentDetail == null)
-                return NotFound(new { Message = "Treatment detail not found." });
-
-            return Ok(treatmentDetail);
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, new { Message = "An error occurred while fetching the treatment detail.", Error = ex.Message });
-        }
-    }
-
-    // Update treatment record (ChiTietHsdt)
-    [HttpPut("update-treatment-detail/{id}")]
-    public async Task<IActionResult> UpdateTreatmentDetail(int id, [FromBody] ChiTietHsdt treatmentDetail)
-    {
-        if (id <= 0 || treatmentDetail == null || id != treatmentDetail.MaCthsdt)
-            return BadRequest(new { Message = "Invalid data provided." });
-
-        try
-        {
-            // Check if the treatment record exists
-            var existingTreatmentDetail = await _context.ChiTietHsdts.FindAsync(id);
-            if (existingTreatmentDetail == null)
-                return NotFound(new { Message = "Treatment detail not found." });
-
-            _context.Entry(existingTreatmentDetail).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
-            return NoContent();
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, new { Message = "An error occurred while updating the treatment detail.", Error = ex.Message });
-        }
-    }
-
-    // Delete a treatment record (ChiTietHsdt)
-    [HttpDelete("delete-treatment-detail/{id}")]
-    public async Task<IActionResult> DeleteTreatmentDetail(int id)
-    {
-        if (id <= 0)
-            return BadRequest(new { Message = "Invalid treatment detail ID." });
-
-        try
-        {
-            var treatmentDetail = await _context.ChiTietHsdts.FindAsync(id);
-            if (treatmentDetail == null)
-                return NotFound(new { Message = "Treatment detail not found." });
-
-            _context.ChiTietHsdts.Remove(treatmentDetail);
-            await _context.SaveChangesAsync();
-            return NoContent();
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, new { Message = "An error occurred while deleting the treatment detail.", Error = ex.Message });
-        }
-    }
-
-    // Get all treatment details for a patient (ChiTietHsdt by MaBn)
-    [HttpGet("{patientId}/treatment-details")]
-    public async Task<IActionResult> GetTreatmentDetailsByPatientId(int patientId)
-    {
-        try
-        {
-            // Fetch treatment details for a specific patient
-            var treatmentDetails = await _context.ChiTietHsdts
-                                                 .Where(t => t.MaBn == patientId)
-                                                 .ToListAsync();
-
-            if (treatmentDetails == null || treatmentDetails.Count == 0)
-                return NotFound(new { Message = "No treatment details found for this patient." });
-
-            return Ok(treatmentDetails);
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, new { Message = "An error occurred while fetching the treatment details.", Error = ex.Message });
-        }
-    }
-
 
 }

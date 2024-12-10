@@ -36,7 +36,7 @@ public class DiscountController : Controller
     {
         try
         {
-            var discounts = await _context.GiamGias.ToListAsync();
+            var discounts = await _context.GiamGias.Where(e => e.An != true).ToListAsync();
             return Ok(discounts);
         }
         catch (Exception ex)
@@ -76,7 +76,7 @@ public class DiscountController : Controller
         {
             _context.Entry(discount).State = EntityState.Modified;
             await _context.SaveChangesAsync();
-            return NoContent();
+            return CreatedAtAction(nameof(GetDiscountById), new { id = discount.MaGiamGia }, discount);
         }
         catch (DbUpdateConcurrencyException)
         {
@@ -100,9 +100,10 @@ public class DiscountController : Controller
             if (discount == null)
                 return NotFound(new { Message = "Discount not found." });
 
-            _context.GiamGias.Remove(discount);
+            discount.An = true;
+            _context.Entry(discount).State = EntityState.Modified;
             await _context.SaveChangesAsync();
-            return NoContent();
+            return Ok(new { Message = "Discount deleted successfully." });
         }
         catch (Exception ex)
         {
@@ -143,13 +144,18 @@ public class DiscountController : Controller
                                             (!giaCuoi.HasValue || gd.SoTienGiam <= giaCuoi));
             }
 
+            //if (!string.IsNullOrEmpty(ngayDau) || !string.IsNullOrEmpty(ngayCuoi))
+            //{
+            //    DateTime? ngayDauDate = !string.IsNullOrEmpty(ngayDau) ? DateTime.Parse(ngayDau) : (DateTime?)null;
+            //    DateTime? ngayCuoiDate = !string.IsNullOrEmpty(ngayCuoi) ? DateTime.Parse(ngayCuoi) : (DateTime?)null;
+
+            //    query = query.Where(gd => (!ngayDauDate.HasValue || gd.NgayBatDau >= ngayDauDate) &&
+            //                                (!ngayCuoiDate.HasValue || DateTime.Parse(gd.NgayKetThuc) <= ngayCuoiDate));
+            //}
             if (!string.IsNullOrEmpty(ngayDau) || !string.IsNullOrEmpty(ngayCuoi))
             {
-                DateTime? ngayDauDate = !string.IsNullOrEmpty(ngayDau) ? DateTime.Parse(ngayDau) : (DateTime?)null;
-                DateTime? ngayCuoiDate = !string.IsNullOrEmpty(ngayCuoi) ? DateTime.Parse(ngayCuoi) : (DateTime?)null;
-
-                query = query.Where(gd => (!ngayDauDate.HasValue || DateTime.Parse(gd.NgayBatDau) >= ngayDauDate) &&
-                                            (!ngayCuoiDate.HasValue || DateTime.Parse(gd.NgayKetThuc) <= ngayCuoiDate));
+                query = query.Where(gd => (string.IsNullOrEmpty(ngayDau) || gd.NgayBatDau.CompareTo(ngayDau) >= 0) &&
+                                          (string.IsNullOrEmpty(ngayCuoi) || gd.NgayKetThuc.CompareTo(ngayCuoi) <= 0));
             }
 
             /*if (maChiNhanh.HasValue)
@@ -158,7 +164,7 @@ public class DiscountController : Controller
             }*/
 
             // Sort results by MaGiamGia
-            var discounts = await query.OrderBy(gd => gd.MaGiamGia).ToListAsync();
+            var discounts = await query.OrderBy(gd => gd.MaGiamGia).Where(e => e.An != true).ToListAsync();
 
             return Ok(new { Success = true, Discounts = discounts });
         }

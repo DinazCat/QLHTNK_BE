@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 
 [ApiController]
 [Route("api/[controller]")]
-[Authorize]
 //[Authorize]
 public class UserController : ControllerBase
 {
@@ -21,7 +20,7 @@ public class UserController : ControllerBase
     }
 
     // Create a new user
-    [Authorize(Roles = "ChuHeThong")]
+    //[Authorize(Roles = "ChuHeThong")]
     [HttpPost]
     public async Task<IActionResult> CreateUser([FromBody] TaiKhoan user)
     {
@@ -64,7 +63,7 @@ public class UserController : ControllerBase
 
         try
         {
-            var user = await _context.TaiKhoans.FindAsync(id);
+            var user = await _context.TaiKhoans.Include(t => t.MaNhaSiNavigation).FirstOrDefaultAsync(t => t.MaTk == id);
             if (user == null)
                 return NotFound(new { Message = "User not found." });
 
