@@ -41,7 +41,12 @@ public class AppointmentController : ControllerBase
     {
         try
         {
-            var appointments = await _context.LichHens.ToListAsync();
+            var appointments = await _context.LichHens
+/*            .Include(lh => lh.MaChiNhanhNavigation)
+            .Include(lh => lh.MaBnNavigation)
+            .Include(lh => lh.MaNsNavigation)*/
+            .ToListAsync();
+
             return Ok(appointments);
         }
         catch (Exception ex)

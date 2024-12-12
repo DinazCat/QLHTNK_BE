@@ -21,6 +21,7 @@ namespace QLHTNK_BE.Models
         public string? TrangThai { get; set; }
 
         public virtual BenhNhan? MaBnNavigation { get; set; }
+        public virtual ChiNhanh? MaChiNhanhNavigation { get; set; }
         public virtual NhanVien? MaNsNavigation { get; set; }
     }
 }

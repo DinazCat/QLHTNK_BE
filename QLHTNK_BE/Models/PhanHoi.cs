@@ -13,5 +13,6 @@ namespace QLHTNK_BE.Models
         public int? MaBn { get; set; }
 
         public virtual BenhNhan? MaBnNavigation { get; set; }
+        public virtual ChiNhanh? MaChiNhanhNavigation { get; set; }
     }
 }

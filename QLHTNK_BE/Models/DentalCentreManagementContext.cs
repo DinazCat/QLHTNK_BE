@@ -28,6 +28,7 @@ namespace QLHTNK_BE.Models
         public virtual DbSet<GiamGia> GiamGias { get; set; } = null!;
         public virtual DbSet<HoaDon> HoaDons { get; set; } = null!;
         public virtual DbSet<LichHen> LichHens { get; set; } = null!;
+        public virtual DbSet<LichLamViec> LichLamViecs { get; set; } = null!;
         public virtual DbSet<NhanVien> NhanViens { get; set; } = null!;
         public virtual DbSet<PhanHoi> PhanHois { get; set; } = null!;
         public virtual DbSet<TaiKhoan> TaiKhoans { get; set; } = null!;
@@ -301,7 +302,7 @@ namespace QLHTNK_BE.Models
                 entity.HasOne(d => d.MaGiamGiaNavigation)
                     .WithMany(p => p.HoaDons)
                     .HasForeignKey(d => d.MaGiamGia)
-                    .HasConstraintName("FK__HoaDon__MaGiamGia__5535A963");
+                    .HasConstraintName("FK__HoaDon__MaGiamGi__5535A963");
 
                 entity.HasOne(d => d.MaNvNavigation)
                     .WithMany(p => p.HoaDons)
@@ -345,11 +346,40 @@ namespace QLHTNK_BE.Models
                     .HasForeignKey(d => d.MaBn)
                     .HasConstraintName("FK__LichHen__MaBN__38996AB5");
 
+                entity.HasOne(d => d.MaChiNhanhNavigation)
+                    .WithMany(p => p.LichHens)
+                    .HasForeignKey(d => d.MaChiNhanh)
+                    .HasConstraintName("FK__LichHen__MaChiNhanh__40196DG2");
+
                 entity.HasOne(d => d.MaNsNavigation)
                     .WithMany(p => p.LichHens)
                     .HasForeignKey(d => d.MaNs)
                     .HasConstraintName("FK__LichHen__MaNS__398D8EEE");
             });
+
+            modelBuilder.Entity<LichLamViec>(entity =>
+            {
+                entity.HasKey(e => e.MaLichLamViec)
+                    .HasName("PK__LichLamV__22FDA272B56DBFEF");
+
+                entity.ToTable("LichLamViec");
+
+                entity.Property(e => e.GhiChu).HasMaxLength(255);
+
+                entity.Property(e => e.GioBatDau).HasMaxLength(5);
+
+                entity.Property(e => e.GioKetThuc).HasMaxLength(5);
+
+                entity.Property(e => e.MaNs).HasColumnName("MaNS");
+
+                entity.Property(e => e.Ngay).HasMaxLength(10);
+
+                entity.HasOne(d => d.MaNsNavigation)
+                    .WithMany(p => p.LichLamViecs)
+                    .HasForeignKey(d => d.MaNs)
+                    .HasConstraintName("FK__LichLamVie__MaNS__71D1E811");
+            });
+
             modelBuilder.Entity<LuongThuong>().ToTable("LuongThuong");
             modelBuilder.Entity<LuongThuong>(entity =>
             {
@@ -427,7 +457,13 @@ namespace QLHTNK_BE.Models
                     .WithMany(p => p.PhanHois)
                     .HasForeignKey(d => d.MaBn)
                     .HasConstraintName("FK__PhanHoi__MaBN__35BCFE0A");
+
+                entity.HasOne(d => d.MaChiNhanhNavigation)
+                    .WithMany(p => p.PhanHois)
+                    .HasForeignKey(d => d.MaChiNhanh)
+                    .HasConstraintName("FK__PhanHoi__MaChiNhanh__4F6I8D72");
             });
+
             modelBuilder.Entity<TaiKhoan>(entity =>
             {
                 entity.Ignore(u => u.UserName);
@@ -555,7 +591,9 @@ namespace QLHTNK_BE.Models
                 entity.ToTable("VatTuDaSuDung");
 
                 entity.Property(e => e.NgaySuDung).HasMaxLength(10);
+
                 entity.Property(e => e.An).HasDefaultValueSql("((0))");
+
                 entity.HasOne(d => d.MaChiNhanhNavigation)
                     .WithMany()
                     .HasForeignKey(d => d.MaChiNhanh)

@@ -10,6 +10,7 @@ namespace QLHTNK_BE.Models
             ChiTietHsdts = new HashSet<ChiTietHsdt>();
             HoaDons = new HashSet<HoaDon>();
             LichHens = new HashSet<LichHen>();
+            LichLamViecs = new HashSet<LichLamViec>();
         }
 
         public int MaNv { get; set; }
@@ -30,5 +31,6 @@ namespace QLHTNK_BE.Models
         public virtual ICollection<ChiTietHsdt> ChiTietHsdts { get; set; }
         public virtual ICollection<HoaDon> HoaDons { get; set; }
         public virtual ICollection<LichHen> LichHens { get; set; }
+        public virtual ICollection<LichLamViec> LichLamViecs { get; set; }
     }
 }
