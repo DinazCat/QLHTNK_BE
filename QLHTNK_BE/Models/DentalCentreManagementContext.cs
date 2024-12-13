@@ -37,6 +37,7 @@ namespace QLHTNK_BE.Models
         public virtual DbSet<VatTu> VatTus { get; set; } = null!;
         public virtual DbSet<VatTuDaSuDung> VatTuDaSuDungs { get; set; } = null!;
         public virtual DbSet<LuongThuong> LuongThuongs { get; set; } = null!;
+        public virtual DbSet<ChamCong> ChamCongs { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -109,6 +110,22 @@ namespace QLHTNK_BE.Models
                 entity.Property(e => e.TongChi).HasColumnType("decimal(18, 2)");
             });
 
+            modelBuilder.Entity<ChamCong>(entity =>
+            {
+                entity.HasKey(e => e.MaCc)
+                    .HasName("PK__ChamCong__27258E0584F80837");
+
+                entity.ToTable("ChamCong");
+
+                entity.Property(e => e.MaCc).HasColumnName("MaCC");
+
+                entity.Property(e => e.MaNv).HasColumnName("MaNV");
+
+                entity.Property(e => e.Ngay).HasMaxLength(10);
+
+                entity.Property(e => e.SoGioLam).HasColumnType("decimal(5, 2)");
+            });
+
             modelBuilder.Entity<ChiNhanh>(entity =>
             {
                 entity.HasKey(e => e.MaCn)
@@ -136,7 +153,9 @@ namespace QLHTNK_BE.Models
 
                 entity.ToTable("ChiTietHSDT");
 
-                entity.Property(e => e.MaCthsdt).HasColumnName("MaCTHSDT");
+                entity.Property(e => e.MaCthsdt)
+                .HasColumnName("MaCTHSDT")
+                .ValueGeneratedOnAdd();
 
                 entity.Property(e => e.ChanDoan).HasMaxLength(255);
 
@@ -145,25 +164,29 @@ namespace QLHTNK_BE.Models
                 entity.Property(e => e.LyDoKham).HasMaxLength(255);
 
                 entity.Property(e => e.MaBn).HasColumnName("MaBN");
+                entity.Property(e => e.MaNhaSi).HasColumnName("MaNhaSi");
 
                 entity.Property(e => e.NgayDieuTri).HasMaxLength(10);
 
                 entity.HasOne(d => d.MaBnNavigation)
                     .WithMany(p => p.ChiTietHsdts)
                     .HasForeignKey(d => d.MaBn)
-                    .HasConstraintName("FK__ChiTietHSD__MaBN__3C69FB99");
+                    .HasConstraintName("FK__ChiTietHSD__MaBN__4F7CD00D");
 
                 entity.HasOne(d => d.MaNhaSiNavigation)
                     .WithMany(p => p.ChiTietHsdts)
                     .HasForeignKey(d => d.MaNhaSi)
-                    .HasConstraintName("FK__ChiTietHS__MaNha__3D5E1FD2");
+                    .HasConstraintName("FK__ChiTietHS__MaNha__5070F446");
             });
 
             modelBuilder.Entity<ChiTietThanhToan>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.MaCTTT);
 
                 entity.ToTable("ChiTietThanhToan");
+                entity.Property(e => e.MaCTTT)
+            .HasColumnName("MaCTTT")
+            .ValueGeneratedOnAdd();
 
                 entity.Property(e => e.HinhThucThanhToan).HasMaxLength(50);
 
@@ -174,9 +197,9 @@ namespace QLHTNK_BE.Models
                 entity.Property(e => e.SoTienThanhToan).HasColumnType("decimal(18, 2)");
 
                 entity.HasOne(d => d.MaHdNavigation)
-                    .WithMany()
+                    .WithMany(p => p.ChiTietThanhToans)
                     .HasForeignKey(d => d.MaHd)
-                    .HasConstraintName("FK__ChiTietTha__MaHD__571DF1D5");
+                    .HasConstraintName("FK__ChiTietTha__MaHD__6A30C649");
             });
 
             modelBuilder.Entity<DichVu>(entity =>
@@ -209,9 +232,14 @@ namespace QLHTNK_BE.Models
 
             modelBuilder.Entity<DichVuDaSuDung>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.MaDVSD);
 
                 entity.ToTable("DichVuDaSuDung");
+
+                entity.Property(e => e.MaDVSD)
+                .HasColumnName("MaDVSD")
+                .ValueGeneratedOnAdd();
+
 
                 entity.Property(e => e.ChietKhau).HasColumnType("decimal(18, 2)");
 
@@ -230,14 +258,14 @@ namespace QLHTNK_BE.Models
                 entity.Property(e => e.TaiKham).HasMaxLength(20);
 
                 entity.HasOne(d => d.MaCthsdtNavigation)
-                    .WithMany()
+                    .WithMany(p => p.DichVuDaSuDungs)
                     .HasForeignKey(d => d.MaCthsdt)
-                    .HasConstraintName("FK__DichVuDaS__MaCTH__4222D4EF");
+                    .HasConstraintName("FK__DichVuDaS__MaCTH__5535A963");
 
                 entity.HasOne(d => d.MaDvNavigation)
                     .WithMany()
                     .HasForeignKey(d => d.MaDv)
-                    .HasConstraintName("FK__DichVuDaSu__MaDV__4316F928");
+                    .HasConstraintName("FK__DichVuDaSu__MaDV__5629CD9C");
             });
 
             modelBuilder.Entity<GiamGia>(entity =>
@@ -267,7 +295,9 @@ namespace QLHTNK_BE.Models
 
                 entity.ToTable("HoaDon");
 
-                entity.Property(e => e.MaHd).HasColumnName("MaHD");
+                entity.Property(e => e.MaHd)
+                .HasColumnName("MaHD")
+                .ValueGeneratedOnAdd();
 
                 entity.Property(e => e.LyDoGiam).HasMaxLength(255);
 
@@ -292,12 +322,12 @@ namespace QLHTNK_BE.Models
                 entity.HasOne(d => d.MaBnNavigation)
                     .WithMany(p => p.HoaDons)
                     .HasForeignKey(d => d.MaBn)
-                    .HasConstraintName("FK__HoaDon__MaBN__52593CB8");
+                    .HasConstraintName("FK__HoaDon__MaBN__656C112C");
 
                 entity.HasOne(d => d.MaCthsdtNavigation)
                     .WithMany(p => p.HoaDons)
                     .HasForeignKey(d => d.MaCthsdt)
-                    .HasConstraintName("FK__HoaDon__MaCTHSDT__5441852A");
+                    .HasConstraintName("FK__HoaDon__MaCTHSDT__6754599E");
 
                 entity.HasOne(d => d.MaGiamGiaNavigation)
                     .WithMany(p => p.HoaDons)
@@ -307,7 +337,7 @@ namespace QLHTNK_BE.Models
                 entity.HasOne(d => d.MaNvNavigation)
                     .WithMany(p => p.HoaDons)
                     .HasForeignKey(d => d.MaNv)
-                    .HasConstraintName("FK__HoaDon__MaNV__534D60F1");
+                    .HasConstraintName("FK__HoaDon__MaNV__66603565");
             });
 
             modelBuilder.Entity<LichHen>(entity =>
@@ -482,7 +512,7 @@ namespace QLHTNK_BE.Models
                 entity.Ignore(u => u.ConcurrencyStamp);
                 entity.Ignore(u => u.Id);
                 entity.HasKey(e => e.MaTk)
-                    .HasName("PK__TaiKhoan__272500702B3A2AE1");
+                    .HasName("PK__TaiKhoan__27250070AFCB866D");
 
                 entity.ToTable("TaiKhoan");
 
@@ -494,7 +524,6 @@ namespace QLHTNK_BE.Models
                     .HasDefaultValue(0);
                 entity.Property(e => e.Token).HasColumnName("Token");
                 entity.Property(e => e.MaNguoiDung).HasMaxLength(12);
-
                 entity.Property(e => e.Email).HasMaxLength(100);
 
                 entity.Property(e => e.LoaiNguoiDung).HasMaxLength(10);
@@ -505,6 +534,9 @@ namespace QLHTNK_BE.Models
 
                 entity.Property(e => e.Ten).HasMaxLength(100);
                 entity.Property(e => e.MaNV);
+                entity.HasOne(t => t.MaNhaSiNavigation)  // Điều hướng từ TaiKhoan đến NhanVien
+        .WithOne(n => n.TaiKhoans)         // Điều hướng từ NhanVien đến TaiKhoan
+        .HasForeignKey<TaiKhoan>(t => t.MaNV);  // Khóa ngoại nằm ở TaiKhoan
             });
 
             modelBuilder.Entity<Thuoc>(entity =>
@@ -534,9 +566,13 @@ namespace QLHTNK_BE.Models
 
             modelBuilder.Entity<ThuocDaKe>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.MaTDK);
 
                 entity.ToTable("ThuocDaKe");
+
+                entity.Property(e => e.MaTDK)
+               .HasColumnName("MaTDK")
+               .ValueGeneratedOnAdd();
 
                 entity.Property(e => e.DonGia)
                     .HasColumnType("decimal(29, 2)")
@@ -549,14 +585,14 @@ namespace QLHTNK_BE.Models
                 entity.Property(e => e.MaCthsdt).HasColumnName("MaCTHSDT");
 
                 entity.HasOne(d => d.MaCthsdtNavigation)
-                    .WithMany()
+                    .WithMany(p => p.ThuocDaKes)
                     .HasForeignKey(d => d.MaCthsdt)
-                    .HasConstraintName("FK__ThuocDaKe__MaCTH__44FF419A");
+                    .HasConstraintName("FK__ThuocDaKe__MaCTH__5812160E");
 
                 entity.HasOne(d => d.MaThuocNavigation)
                     .WithMany()
                     .HasForeignKey(d => d.MaThuoc)
-                    .HasConstraintName("FK__ThuocDaKe__MaThu__45F365D3");
+                    .HasConstraintName("FK__ThuocDaKe__MaThu__59063A47");
             });
 
             modelBuilder.Entity<VatTu>(entity =>
@@ -586,10 +622,12 @@ namespace QLHTNK_BE.Models
 
             modelBuilder.Entity<VatTuDaSuDung>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.ToTable("VatTuDaSuDung");
-
+                entity.HasKey(e => e.MaVTDSD)
+                  .HasName("PK_VatTuDaSuDung");
+                entity.Property(e => e.MaVTDSD)
+                   .HasColumnName("MaVTDSD")
+                   .ValueGeneratedOnAdd();
                 entity.Property(e => e.NgaySuDung).HasMaxLength(10);
 
                 entity.Property(e => e.An).HasDefaultValueSql("((0))");
@@ -597,12 +635,12 @@ namespace QLHTNK_BE.Models
                 entity.HasOne(d => d.MaChiNhanhNavigation)
                     .WithMany()
                     .HasForeignKey(d => d.MaChiNhanh)
-                    .HasConstraintName("FK__VatTuDaSu__MaChi__4CA06362");
+                    .HasConstraintName("FK__VatTuDaSu__MaChi__5FB337D6");
 
                 entity.HasOne(d => d.MaVatTuNavigation)
                     .WithMany()
                     .HasForeignKey(d => d.MaVatTu)
-                    .HasConstraintName("FK__VatTuDaSu__MaVat__4BAC3F29");
+                    .HasConstraintName("FK__VatTuDaSu__MaVat__5EBF139D");
             });
 
             OnModelCreatingPartial(modelBuilder);

@@ -9,6 +9,8 @@ namespace QLHTNK_BE.Models
         {
             AnhSauDieuTris = new HashSet<AnhSauDieuTri>();
             HoaDons = new HashSet<HoaDon>();
+            DichVuDaSuDungs = new HashSet<DichVuDaSuDung>();
+            ThuocDaKes = new HashSet<ThuocDaKe>();
         }
 
         public int MaCthsdt { get; set; }
@@ -24,5 +26,7 @@ namespace QLHTNK_BE.Models
         public virtual NhanVien? MaNhaSiNavigation { get; set; }
         public virtual ICollection<AnhSauDieuTri> AnhSauDieuTris { get; set; }
         public virtual ICollection<HoaDon> HoaDons { get; set; }
+        public virtual ICollection<DichVuDaSuDung> DichVuDaSuDungs { get; set; }
+        public virtual ICollection<ThuocDaKe> ThuocDaKes { get; set; }
     }
 }

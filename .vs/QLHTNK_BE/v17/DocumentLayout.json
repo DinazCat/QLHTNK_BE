@@ -1,81 +1,117 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\congnghenet\\Backend\\QLHTNK_BE\\",
+  "WorkspaceRootPath": "D:\\congnghenet\\backend2\\QLHTNK_BE\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend\\qlhtnk_be\\qlhtnk_be\\models\\vattudasudung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\models\\vattudasudung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend2\\qlhtnk_be\\qlhtnk_be\\models\\hoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\models\\hoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend\\qlhtnk_be\\qlhtnk_be\\controllers\\materialhistorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\controllers\\materialhistorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend\\qlhtnk_be\\qlhtnk_be\\models\\vattu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\models\\vattu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend\\qlhtnk_be\\qlhtnk_be\\models\\dentalcentremanagementcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\models\\dentalcentremanagementcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend\\qlhtnk_be\\qlhtnk_be\\models\\nhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\models\\nhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend\\qlhtnk_be\\qlhtnk_be\\models\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend2\\qlhtnk_be\\qlhtnk_be\\models\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\models\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend\\qlhtnk_be\\qlhtnk_be\\controllers\\bonuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\controllers\\bonuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend2\\qlhtnk_be\\qlhtnk_be\\controllers\\cthsdtcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\controllers\\cthsdtcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend\\qlhtnk_be\\qlhtnk_be\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend2\\qlhtnk_be\\qlhtnk_be\\controllers\\billcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\controllers\\billcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend\\qlhtnk_be\\qlhtnk_be\\models\\luongthuong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\models\\luongthuong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend2\\qlhtnk_be\\qlhtnk_be\\controllers\\discountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\controllers\\discountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend\\qlhtnk_be\\qlhtnk_be\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend2\\qlhtnk_be\\qlhtnk_be\\controllers\\patientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\controllers\\patientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend2\\qlhtnk_be\\qlhtnk_be\\models\\dentalcentremanagementcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\models\\dentalcentremanagementcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend2\\qlhtnk_be\\qlhtnk_be\\models\\chitiethsdt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\models\\chitiethsdt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend2\\qlhtnk_be\\qlhtnk_be\\models\\chitietthanhtoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\models\\chitietthanhtoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend2\\qlhtnk_be\\qlhtnk_be\\models\\dichvudasudung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\models\\dichvudasudung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend2\\qlhtnk_be\\qlhtnk_be\\models\\thuocdake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\models\\thuocdake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend2\\qlhtnk_be\\qlhtnk_be\\controllers\\materialhistorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\controllers\\materialhistorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend2\\qlhtnk_be\\qlhtnk_be\\models\\vattudasudung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\models\\vattudasudung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend2\\qlhtnk_be\\qlhtnk_be\\models\\nhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\models\\nhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend2\\qlhtnk_be\\qlhtnk_be\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend\\qlhtnk_be\\qlhtnk_be\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend2\\qlhtnk_be\\qlhtnk_be\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend\\qlhtnk_be\\qlhtnk_be\\services\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\services\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend\\qlhtnk_be\\qlhtnk_be\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend2\\qlhtnk_be\\qlhtnk_be\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend\\qlhtnk_be\\qlhtnk_be\\services\\emailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend2\\qlhtnk_be\\qlhtnk_be\\models\\vattu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\models\\vattu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend2\\qlhtnk_be\\qlhtnk_be\\controllers\\bonuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\controllers\\bonuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend2\\qlhtnk_be\\qlhtnk_be\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend2\\qlhtnk_be\\qlhtnk_be\\models\\luongthuong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\models\\luongthuong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend2\\qlhtnk_be\\qlhtnk_be\\services\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\services\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend2\\qlhtnk_be\\qlhtnk_be\\services\\emailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\services\\emailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend\\qlhtnk_be\\qlhtnk_be\\models\\loginrequestmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend2\\qlhtnk_be\\qlhtnk_be\\models\\loginrequestmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\models\\loginrequestmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend\\qlhtnk_be\\qlhtnk_be\\models\\loginresponsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend2\\qlhtnk_be\\qlhtnk_be\\models\\loginresponsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\models\\loginresponsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend\\qlhtnk_be\\qlhtnk_be\\services\\iemailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend2\\qlhtnk_be\\qlhtnk_be\\services\\iemailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\services\\iemailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend\\qlhtnk_be\\qlhtnk_be\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend2\\qlhtnk_be\\qlhtnk_be\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend\\qlhtnk_be\\qlhtnk_be\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|d:\\congnghenet\\backend2\\qlhtnk_be\\qlhtnk_be\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{A3850E0D-EE55-4B00-946E-D92B7AAAEEF0}|QLHTNK_BE\\QLHTNK_BE.csproj|solutionrelative:qlhtnk_be\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
@@ -86,11 +122,128 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CTHSDTController.cs",
+              "DocumentMoniker": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Controllers\\CTHSDTController.cs",
+              "RelativeDocumentMoniker": "QLHTNK_BE\\Controllers\\CTHSDTController.cs",
+              "ToolTip": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Controllers\\CTHSDTController.cs",
+              "RelativeToolTip": "QLHTNK_BE\\Controllers\\CTHSDTController.cs",
+              "ViewState": "AgIAAD4BAAAAAAAAAAAAwFEBAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T09:33:04.348Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DiscountController.cs",
+              "DocumentMoniker": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Controllers\\DiscountController.cs",
+              "RelativeDocumentMoniker": "QLHTNK_BE\\Controllers\\DiscountController.cs",
+              "ToolTip": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Controllers\\DiscountController.cs",
+              "RelativeToolTip": "QLHTNK_BE\\Controllers\\DiscountController.cs",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAAwLMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T09:31:22.438Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PatientController.cs",
+              "DocumentMoniker": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Controllers\\PatientController.cs",
+              "RelativeDocumentMoniker": "QLHTNK_BE\\Controllers\\PatientController.cs",
+              "ToolTip": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Controllers\\PatientController.cs",
+              "RelativeToolTip": "QLHTNK_BE\\Controllers\\PatientController.cs",
+              "ViewState": "AgIAAJcAAAAAAAAAAAAAwL0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T09:30:08.548Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ChiTietHsdt.cs",
+              "DocumentMoniker": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Models\\ChiTietHsdt.cs",
+              "RelativeDocumentMoniker": "QLHTNK_BE\\Models\\ChiTietHsdt.cs",
+              "ToolTip": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Models\\ChiTietHsdt.cs",
+              "RelativeToolTip": "QLHTNK_BE\\Models\\ChiTietHsdt.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T09:28:34.968Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ChiTietThanhToan.cs",
+              "DocumentMoniker": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Models\\ChiTietThanhToan.cs",
+              "RelativeDocumentMoniker": "QLHTNK_BE\\Models\\ChiTietThanhToan.cs",
+              "ToolTip": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Models\\ChiTietThanhToan.cs",
+              "RelativeToolTip": "QLHTNK_BE\\Models\\ChiTietThanhToan.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T09:27:41.9Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "DichVuDaSuDung.cs",
+              "DocumentMoniker": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Models\\DichVuDaSuDung.cs",
+              "RelativeDocumentMoniker": "QLHTNK_BE\\Models\\DichVuDaSuDung.cs",
+              "ToolTip": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Models\\DichVuDaSuDung.cs",
+              "RelativeToolTip": "QLHTNK_BE\\Models\\DichVuDaSuDung.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T09:26:19.293Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TaiKhoan.cs",
+              "DocumentMoniker": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Models\\TaiKhoan.cs",
+              "RelativeDocumentMoniker": "QLHTNK_BE\\Models\\TaiKhoan.cs",
+              "ToolTip": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Models\\TaiKhoan.cs",
+              "RelativeToolTip": "QLHTNK_BE\\Models\\TaiKhoan.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T16:49:26.617Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HoaDon.cs",
+              "DocumentMoniker": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Models\\HoaDon.cs",
+              "RelativeDocumentMoniker": "QLHTNK_BE\\Models\\HoaDon.cs",
+              "ToolTip": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Models\\HoaDon.cs",
+              "RelativeToolTip": "QLHTNK_BE\\Models\\HoaDon.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T09:24:46.419Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BillController.cs",
+              "DocumentMoniker": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Controllers\\BillController.cs",
+              "RelativeDocumentMoniker": "QLHTNK_BE\\Controllers\\BillController.cs",
+              "ToolTip": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Controllers\\BillController.cs",
+              "RelativeToolTip": "QLHTNK_BE\\Controllers\\BillController.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAAAOQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T09:31:55.308Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -98,84 +251,115 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "VatTu.cs",
-              "DocumentMoniker": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Models\\VatTu.cs",
-              "RelativeDocumentMoniker": "QLHTNK_BE\\Models\\VatTu.cs",
-              "ToolTip": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Models\\VatTu.cs",
-              "RelativeToolTip": "QLHTNK_BE\\Models\\VatTu.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 10,
+              "Title": "ThuocDaKe.cs",
+              "DocumentMoniker": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Models\\ThuocDaKe.cs",
+              "RelativeDocumentMoniker": "QLHTNK_BE\\Models\\ThuocDaKe.cs",
+              "ToolTip": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Models\\ThuocDaKe.cs",
+              "RelativeToolTip": "QLHTNK_BE\\Models\\ThuocDaKe.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T19:14:43.122Z"
+              "WhenOpened": "2024-12-10T09:22:48.927Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 12,
               "Title": "VatTuDaSuDung.cs",
-              "DocumentMoniker": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Models\\VatTuDaSuDung.cs",
+              "DocumentMoniker": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Models\\VatTuDaSuDung.cs",
               "RelativeDocumentMoniker": "QLHTNK_BE\\Models\\VatTuDaSuDung.cs",
-              "ToolTip": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Models\\VatTuDaSuDung.cs",
+              "ToolTip": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Models\\VatTuDaSuDung.cs",
               "RelativeToolTip": "QLHTNK_BE\\Models\\VatTuDaSuDung.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-30T19:07:21.509Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MaterialHistoryController.cs",
-              "DocumentMoniker": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Controllers\\MaterialHistoryController.cs",
-              "RelativeDocumentMoniker": "QLHTNK_BE\\Controllers\\MaterialHistoryController.cs",
-              "ToolTip": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Controllers\\MaterialHistoryController.cs",
-              "RelativeToolTip": "QLHTNK_BE\\Controllers\\MaterialHistoryController.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAwHQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T19:03:45.435Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "BonusController.cs",
-              "DocumentMoniker": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Controllers\\BonusController.cs",
-              "RelativeDocumentMoniker": "QLHTNK_BE\\Controllers\\BonusController.cs",
-              "ToolTip": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Controllers\\BonusController.cs",
-              "RelativeToolTip": "QLHTNK_BE\\Controllers\\BonusController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHgAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T08:09:48.028Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "DentalCentreManagementContext.cs",
-              "DocumentMoniker": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Models\\DentalCentreManagementContext.cs",
+              "DocumentMoniker": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Models\\DentalCentreManagementContext.cs",
               "RelativeDocumentMoniker": "QLHTNK_BE\\Models\\DentalCentreManagementContext.cs",
-              "ToolTip": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Models\\DentalCentreManagementContext.cs",
+              "ToolTip": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Models\\DentalCentreManagementContext.cs",
               "RelativeToolTip": "QLHTNK_BE\\Models\\DentalCentreManagementContext.cs",
-              "ViewState": "AgIAADQCAAAAAAAAAADwv0ECAABEAAAAAAAAAA==",
+              "ViewState": "AgIAAAQCAAAAAAAAAADwv6AAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T16:51:17.975Z"
+              "WhenOpened": "2024-11-19T16:51:17.975Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "LuongThuong.cs",
-              "DocumentMoniker": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Models\\LuongThuong.cs",
-              "RelativeDocumentMoniker": "QLHTNK_BE\\Models\\LuongThuong.cs",
-              "ToolTip": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Models\\LuongThuong.cs",
-              "RelativeToolTip": "QLHTNK_BE\\Models\\LuongThuong.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAAAsAAAAqAAAAAAAAAA==",
+              "DocumentIndex": 15,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "QLHTNK_BE\\Controllers\\AccountController.cs",
+              "ToolTip": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "QLHTNK_BE\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwL4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T08:00:33.176Z"
+              "WhenOpened": "2024-11-18T09:08:59.596Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 14,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "QLHTNK_BE\\Controllers\\UserController.cs",
+              "ToolTip": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Controllers\\UserController.cs",
+              "RelativeToolTip": "QLHTNK_BE\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAAwHwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T09:05:41.408Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "NhanVien.cs",
+              "DocumentMoniker": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Models\\NhanVien.cs",
+              "RelativeDocumentMoniker": "QLHTNK_BE\\Models\\NhanVien.cs",
+              "ToolTip": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Models\\NhanVien.cs",
+              "RelativeToolTip": "QLHTNK_BE\\Models\\NhanVien.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACEAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T16:26:58.668Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "MaterialHistoryController.cs",
+              "DocumentMoniker": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Controllers\\MaterialHistoryController.cs",
+              "RelativeDocumentMoniker": "QLHTNK_BE\\Controllers\\MaterialHistoryController.cs",
+              "ToolTip": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Controllers\\MaterialHistoryController.cs",
+              "RelativeToolTip": "QLHTNK_BE\\Controllers\\MaterialHistoryController.cs",
+              "ViewState": "AgIAAKcAAAAAAAAAAAAAwM0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-30T19:03:45.435Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Program.cs",
+              "RelativeDocumentMoniker": "QLHTNK_BE\\Program.cs",
+              "ToolTip": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Program.cs",
+              "RelativeToolTip": "QLHTNK_BE\\Program.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAABgAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T15:45:01.204Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
               "Title": "EmployeeController.cs",
-              "DocumentMoniker": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Controllers\\EmployeeController.cs",
+              "DocumentMoniker": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Controllers\\EmployeeController.cs",
               "RelativeDocumentMoniker": "QLHTNK_BE\\Controllers\\EmployeeController.cs",
-              "ToolTip": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Controllers\\EmployeeController.cs",
+              "ToolTip": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Controllers\\EmployeeController.cs",
               "RelativeToolTip": "QLHTNK_BE\\Controllers\\EmployeeController.cs",
               "ViewState": "AgIAADMAAAAAAAAAAAAwwEgAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -183,59 +367,47 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TaiKhoan.cs",
-              "DocumentMoniker": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Models\\TaiKhoan.cs",
-              "RelativeDocumentMoniker": "QLHTNK_BE\\Models\\TaiKhoan.cs",
-              "ToolTip": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Models\\TaiKhoan.cs",
-              "RelativeToolTip": "QLHTNK_BE\\Models\\TaiKhoan.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAmAAAAAAAAAA==",
+              "DocumentIndex": 20,
+              "Title": "LuongThuong.cs",
+              "DocumentMoniker": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Models\\LuongThuong.cs",
+              "RelativeDocumentMoniker": "QLHTNK_BE\\Models\\LuongThuong.cs",
+              "ToolTip": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Models\\LuongThuong.cs",
+              "RelativeToolTip": "QLHTNK_BE\\Models\\LuongThuong.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAAAsAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T16:49:26.617Z"
+              "WhenOpened": "2024-11-30T08:00:33.176Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "NhanVien.cs",
-              "DocumentMoniker": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Models\\NhanVien.cs",
-              "RelativeDocumentMoniker": "QLHTNK_BE\\Models\\NhanVien.cs",
-              "ToolTip": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Models\\NhanVien.cs",
-              "RelativeToolTip": "QLHTNK_BE\\Models\\NhanVien.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABoAAAACAAAAAAAAAA==",
+              "DocumentIndex": 18,
+              "Title": "BonusController.cs",
+              "DocumentMoniker": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Controllers\\BonusController.cs",
+              "RelativeDocumentMoniker": "QLHTNK_BE\\Controllers\\BonusController.cs",
+              "ToolTip": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Controllers\\BonusController.cs",
+              "RelativeToolTip": "QLHTNK_BE\\Controllers\\BonusController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T16:26:58.668Z"
+              "WhenOpened": "2024-11-30T08:09:48.028Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "QLHTNK_BE\\Controllers\\UserController.cs",
-              "ToolTip": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Controllers\\UserController.cs",
-              "RelativeToolTip": "QLHTNK_BE\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 17,
+              "Title": "VatTu.cs",
+              "DocumentMoniker": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Models\\VatTu.cs",
+              "RelativeDocumentMoniker": "QLHTNK_BE\\Models\\VatTu.cs",
+              "ToolTip": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Models\\VatTu.cs",
+              "RelativeToolTip": "QLHTNK_BE\\Models\\VatTu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T09:05:41.408Z"
+              "WhenOpened": "2024-11-30T19:14:43.122Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "QLHTNK_BE\\Controllers\\AccountController.cs",
-              "ToolTip": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "QLHTNK_BE\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFwAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T09:08:59.596Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 21,
               "Title": "JwtService.cs",
-              "DocumentMoniker": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Services\\JwtService.cs",
+              "DocumentMoniker": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Services\\JwtService.cs",
               "RelativeDocumentMoniker": "QLHTNK_BE\\Services\\JwtService.cs",
-              "ToolTip": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Services\\JwtService.cs",
+              "ToolTip": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Services\\JwtService.cs",
               "RelativeToolTip": "QLHTNK_BE\\Services\\JwtService.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAABqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -243,23 +415,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Program.cs",
-              "RelativeDocumentMoniker": "QLHTNK_BE\\Program.cs",
-              "ToolTip": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Program.cs",
-              "RelativeToolTip": "QLHTNK_BE\\Program.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAAAEMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T15:45:01.204Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 23,
               "Title": "LoginRequestModel.cs",
-              "DocumentMoniker": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Models\\LoginRequestModel.cs",
+              "DocumentMoniker": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Models\\LoginRequestModel.cs",
               "RelativeDocumentMoniker": "QLHTNK_BE\\Models\\LoginRequestModel.cs",
-              "ToolTip": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Models\\LoginRequestModel.cs",
+              "ToolTip": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Models\\LoginRequestModel.cs",
               "RelativeToolTip": "QLHTNK_BE\\Models\\LoginRequestModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -267,11 +427,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 22,
               "Title": "EmailSender.cs",
-              "DocumentMoniker": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Services\\EmailSender.cs",
+              "DocumentMoniker": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Services\\EmailSender.cs",
               "RelativeDocumentMoniker": "QLHTNK_BE\\Services\\EmailSender.cs",
-              "ToolTip": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Services\\EmailSender.cs",
+              "ToolTip": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Services\\EmailSender.cs",
               "RelativeToolTip": "QLHTNK_BE\\Services\\EmailSender.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -279,11 +439,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 24,
               "Title": "LoginResponseModel.cs",
-              "DocumentMoniker": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Models\\LoginResponseModel.cs",
+              "DocumentMoniker": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Models\\LoginResponseModel.cs",
               "RelativeDocumentMoniker": "QLHTNK_BE\\Models\\LoginResponseModel.cs",
-              "ToolTip": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Models\\LoginResponseModel.cs",
+              "ToolTip": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Models\\LoginResponseModel.cs",
               "RelativeToolTip": "QLHTNK_BE\\Models\\LoginResponseModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -291,11 +451,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 25,
               "Title": "IEmailSender.cs",
-              "DocumentMoniker": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Services\\IEmailSender.cs",
+              "DocumentMoniker": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Services\\IEmailSender.cs",
               "RelativeDocumentMoniker": "QLHTNK_BE\\Services\\IEmailSender.cs",
-              "ToolTip": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Services\\IEmailSender.cs",
+              "ToolTip": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Services\\IEmailSender.cs",
               "RelativeToolTip": "QLHTNK_BE\\Services\\IEmailSender.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -303,11 +463,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 26,
               "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\appsettings.json",
+              "DocumentMoniker": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\appsettings.json",
               "RelativeDocumentMoniker": "QLHTNK_BE\\appsettings.json",
-              "ToolTip": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\appsettings.json",
+              "ToolTip": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\appsettings.json",
               "RelativeToolTip": "QLHTNK_BE\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -315,11 +475,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 27,
               "Title": "launchSettings.json",
-              "DocumentMoniker": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Properties\\launchSettings.json",
+              "DocumentMoniker": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "QLHTNK_BE\\Properties\\launchSettings.json",
-              "ToolTip": "D:\\congnghenet\\Backend\\QLHTNK_BE\\QLHTNK_BE\\Properties\\launchSettings.json",
+              "ToolTip": "D:\\congnghenet\\backend2\\QLHTNK_BE\\QLHTNK_BE\\Properties\\launchSettings.json",
               "RelativeToolTip": "QLHTNK_BE\\Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",

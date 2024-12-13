@@ -118,7 +118,7 @@ public class BranchController : ControllerBase
 
     // Get branches by search criteria
     [HttpGet("search")]
-    public async Task<IActionResult> GetBranchsBySearch([FromQuery] string maChiNhanh, [FromQuery] string tenChiNhanh)
+    public async Task<IActionResult> GetBranchsBySearch([FromQuery] string? maChiNhanh = null, [FromQuery] string? tenChiNhanh = null)
     {
         try
         {

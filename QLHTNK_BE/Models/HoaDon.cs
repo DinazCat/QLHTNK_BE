@@ -5,6 +5,10 @@ namespace QLHTNK_BE.Models
 {
     public partial class HoaDon
     {
+        public HoaDon()
+        {
+            ChiTietThanhToans = new HashSet<ChiTietThanhToan>();
+        }
         public int MaHd { get; set; }
         public int? MaBn { get; set; }
         public int? MaNv { get; set; }
@@ -22,5 +26,6 @@ namespace QLHTNK_BE.Models
         public virtual ChiTietHsdt? MaCthsdtNavigation { get; set; }
         public virtual GiamGia? MaGiamGiaNavigation { get; set; }
         public virtual NhanVien? MaNvNavigation { get; set; }
+        public virtual ICollection<ChiTietThanhToan> ChiTietThanhToans { get; set; }
     }
 }

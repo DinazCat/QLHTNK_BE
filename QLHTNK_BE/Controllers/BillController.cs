@@ -7,11 +7,11 @@ using QLHTNK_BE.Models;
 
 [ApiController]
 [Route("api/[controller]")]
-public class BillController : ControllerBase
+public class HoaDonController : ControllerBase
 {
     private readonly DentalCentreManagementContext _context;
 
-    public BillController(DentalCentreManagementContext context)
+    public HoaDonController(DentalCentreManagementContext context)
     {
         _context = context;
     }
@@ -41,7 +41,21 @@ public class BillController : ControllerBase
     {
         try
         {
-            var bills = await _context.HoaDons.ToListAsync();
+            var bills = await _context.HoaDons
+              .Include(b => b.ChiTietThanhToans)
+              .Include(b => b.MaGiamGiaNavigation)
+              .Include(b => b.MaBnNavigation) // Bệnh nhân
+              .Include(b => b.MaCthsdtNavigation)
+                  .ThenInclude(ct => ct.AnhSauDieuTris) // Ảnh sau điều trị
+              .Include(b => b.MaCthsdtNavigation)
+                  .ThenInclude(ct => ct.DichVuDaSuDungs) // Dịch vụ đã sử dụng
+                  .ThenInclude(dv => dv.MaDvNavigation)
+              .Include(b => b.MaCthsdtNavigation)
+                  .ThenInclude(ct => ct.ThuocDaKes) // Thuốc đã kê
+                  .ThenInclude(th => th.MaThuocNavigation)
+                   .Include(b => b.MaCthsdtNavigation)
+                  .ThenInclude(ct => ct.MaNhaSiNavigation) // nha sĩ
+              .ToListAsync();
             return Ok(bills);
         }
         catch (Exception ex)
@@ -70,19 +84,45 @@ public class BillController : ControllerBase
             return StatusCode(500, new { Message = "An error occurred while fetching the bill.", Error = ex.Message });
         }
     }
+    public class updateBillRequest
+    {
+        public HoaDon bill { get; set; }
+        public List<ChiTietThanhToan>? CTTT { get; set; }
+    }
 
     // Update an existing bill
     [HttpPut("{id}")]
-    public async Task<IActionResult> UpdateBill(int id, [FromBody] HoaDon bill)
+    public async Task<IActionResult> UpdateBill(int id, [FromBody] updateBillRequest updateBill)
     {
-        if (id <= 0 || bill == null || id != bill.MaHd)
+        if (id <= 0 || updateBill == null || id != updateBill.bill.MaHd)
             return BadRequest(new { Message = "Invalid data provided." });
 
         try
         {
-            _context.Entry(bill).State = EntityState.Modified;
+            _context.Entry(updateBill.bill).State = EntityState.Modified;
+            if (updateBill.CTTT != null)
+            {
+                foreach (var cttt in updateBill.CTTT)
+                {
+                    _context.ChiTietThanhToans.Add(cttt);
+                }
+            }
             await _context.SaveChangesAsync();
-            return NoContent();
+            var Detail = await _context.HoaDons.Include(b => b.ChiTietThanhToans)
+                  .Include(b => b.MaGiamGiaNavigation)
+              .Include(b => b.MaBnNavigation) // Bệnh nhân
+              .Include(b => b.MaCthsdtNavigation)
+                  .ThenInclude(ct => ct.AnhSauDieuTris) // Ảnh sau điều trị
+              .Include(b => b.MaCthsdtNavigation)
+                  .ThenInclude(ct => ct.DichVuDaSuDungs) // Dịch vụ đã sử dụng
+                  .ThenInclude(dv => dv.MaDvNavigation)
+              .Include(b => b.MaCthsdtNavigation)
+                  .ThenInclude(ct => ct.ThuocDaKes) // Thuốc đã kê
+                  .ThenInclude(th => th.MaThuocNavigation)
+                   .Include(b => b.MaCthsdtNavigation)
+                  .ThenInclude(ct => ct.MaNhaSiNavigation) // nha sĩ
+                    .FirstOrDefaultAsync(x => x.MaHd == id);
+            return Ok(Detail);
         }
         catch (DbUpdateConcurrencyException)
         {
@@ -155,7 +195,7 @@ public class BillController : ControllerBase
                 query = query.Where(bill =>
                     string.Equals(bill.NgayLap.Trim(), ngayLap.Trim(), StringComparison.OrdinalIgnoreCase)
                 );
-            }                 
+            }
 
             // Filter by TinhTrang if not "Tất cả"
             if (!string.Equals(tinhTrang, "Tất cả", StringComparison.OrdinalIgnoreCase))
@@ -164,7 +204,19 @@ public class BillController : ControllerBase
             }
 
             // Order by MaHoaDon
-            var bills = await query.OrderBy(bill => bill.MaHd).ToListAsync();
+            var bills = await query.OrderBy(bill => bill.MaHd).Include(b => b.ChiTietThanhToans)
+                  .Include(b => b.MaGiamGiaNavigation)
+              .Include(b => b.MaBnNavigation) // Bệnh nhân
+              .Include(b => b.MaCthsdtNavigation)
+                  .ThenInclude(ct => ct.AnhSauDieuTris) // Ảnh sau điều trị
+              .Include(b => b.MaCthsdtNavigation)
+                  .ThenInclude(ct => ct.DichVuDaSuDungs) // Dịch vụ đã sử dụng
+                  .ThenInclude(dv => dv.MaDvNavigation)
+              .Include(b => b.MaCthsdtNavigation)
+                  .ThenInclude(ct => ct.ThuocDaKes) // Thuốc đã kê
+                  .ThenInclude(th => th.MaThuocNavigation)
+                   .Include(b => b.MaCthsdtNavigation)
+                  .ThenInclude(ct => ct.MaNhaSiNavigation).ToListAsync();
 
             return Ok(new { Success = true, Bills = bills });
         }

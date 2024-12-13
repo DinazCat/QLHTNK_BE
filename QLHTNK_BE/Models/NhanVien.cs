@@ -11,6 +11,7 @@ namespace QLHTNK_BE.Models
             HoaDons = new HashSet<HoaDon>();
             LichHens = new HashSet<LichHen>();
             LichLamViecs = new HashSet<LichLamViec>();
+            TaiKhoans = new TaiKhoan();
         }
 
         public int MaNv { get; set; }
@@ -28,6 +29,7 @@ namespace QLHTNK_BE.Models
         public bool? An { get; set; }
 
         public virtual ChiNhanh? MaChiNhanhNavigation { get; set; }
+        public virtual TaiKhoan? TaiKhoans { get; set; }
         public virtual ICollection<ChiTietHsdt> ChiTietHsdts { get; set; }
         public virtual ICollection<HoaDon> HoaDons { get; set; }
         public virtual ICollection<LichHen> LichHens { get; set; }

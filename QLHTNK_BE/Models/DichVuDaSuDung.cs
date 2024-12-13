@@ -5,6 +5,7 @@ namespace QLHTNK_BE.Models
 {
     public partial class DichVuDaSuDung
     {
+        public int? MaDVSD { get; set; }
         public int? MaCthsdt { get; set; }
         public int? MaDv { get; set; }
         public decimal? GiaDichVu { get; set; }

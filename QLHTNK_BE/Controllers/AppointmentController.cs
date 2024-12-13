@@ -42,9 +42,6 @@ public class AppointmentController : ControllerBase
         try
         {
             var appointments = await _context.LichHens
-/*            .Include(lh => lh.MaChiNhanhNavigation)
-            .Include(lh => lh.MaBnNavigation)
-            .Include(lh => lh.MaNsNavigation)*/
             .ToListAsync();
 
             return Ok(appointments);
@@ -125,12 +122,14 @@ public class AppointmentController : ControllerBase
     // Get appointments by search criteria
     [HttpGet("search")]
     public async Task<IActionResult> GetAppointmentsBySearch(
-        [FromQuery] string MaNS, 
-        [FromQuery] string SDT, 
-        [FromQuery] string TenNS, 
-        [FromQuery] string TenBN, 
-        [FromQuery] string DichVu, 
-        [FromQuery] string NgayHen)
+    [FromQuery] string? MaNS,
+    [FromQuery] string? MaBN,
+    [FromQuery] string? TenNS,
+    [FromQuery] string? TenBN,
+    [FromQuery] string? DichVu,
+    [FromQuery] string? NgayHen,
+    [FromQuery] string? LoaiLichHen,
+    [FromQuery] string? TrangThai)
     {
         try
         {
@@ -149,10 +148,10 @@ public class AppointmentController : ControllerBase
                 appointmentsQuery = appointmentsQuery.Where(a => a.MaNsNavigation.TenNv.ToLower().Contains(TenNS.ToLower()));
             }
 
-            // Filter by SDT (phone number)
-            if (!string.IsNullOrEmpty(SDT))
+            // Filter by MaBN
+            if (!string.IsNullOrEmpty(MaBN))
             {
-                appointmentsQuery = appointmentsQuery.Where(a => a.SoDienThoai.Contains(SDT));
+                appointmentsQuery = appointmentsQuery.Where(a => a.MaBn.ToString().Contains(MaBN));
             }
 
             // Filter by TenBN (patient name)
@@ -173,6 +172,18 @@ public class AppointmentController : ControllerBase
                 appointmentsQuery = appointmentsQuery.Where(a => a.Ngay == NgayHen);
             }
 
+            // Filter by LoaiLichHen (appointment type)
+            if (!string.IsNullOrEmpty(LoaiLichHen))
+            {
+                appointmentsQuery = appointmentsQuery.Where(a => a.LoaiLichHen == LoaiLichHen);
+            }
+
+            // Filter by TrangThai (status)
+            if (!string.IsNullOrEmpty(TrangThai))
+            {
+                appointmentsQuery = appointmentsQuery.Where(a => a.TrangThai == TrangThai);
+            }
+
             // Execute the query
             var appointments = await appointmentsQuery.ToListAsync();
 
@@ -185,6 +196,63 @@ public class AppointmentController : ControllerBase
         catch (Exception ex)
         {
             return StatusCode(500, new { Message = "An error occurred while fetching appointments.", Error = ex.Message });
+        }
+    }
+
+
+[HttpPost("DoctorSchedule")]
+    public async Task<IActionResult> CreateDoctorSchedule([FromBody] LichLamViec doctorSchedule)
+    {
+        if (doctorSchedule == null)
+            return BadRequest(new { Message = "Invalid data." });
+
+        try
+        {
+            _context.LichLamViecs.Add(doctorSchedule);
+            await _context.SaveChangesAsync();
+            return CreatedAtAction(nameof(GetAppointmentById), new { id = doctorSchedule.MaLichLamViec }, doctorSchedule);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { Message = "An error occurred while creating the LichLamViec.", Error = ex.Message });
+        }
+    }
+
+    [HttpGet("DoctorSchedule")]
+    public async Task<IActionResult> GetAllDoctorSchedule()
+    {
+        try
+        {
+            var appointments = await _context.LichLamViecs
+            .ToListAsync();
+
+            return Ok(appointments);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { Message = "An error occurred while fetching LichLamViecs.", Error = ex.Message });
+        }
+    }
+
+    [HttpPut("DoctorSchedule/{id}")]
+    public async Task<IActionResult> UpdateDoctorSchedule(int id, [FromBody] LichLamViec doctorSchedule)
+    {
+        if (id <= 0 || doctorSchedule == null || id != doctorSchedule.MaLichLamViec)
+            return BadRequest(new { Message = "Invalid data provided." });
+
+        try
+        {
+            _context.Entry(doctorSchedule).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            return NotFound(new { Message = "DoctorSchedule not found for update." });
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { Message = "An error occurred while updating the DoctorSchedule.", Error = ex.Message });
         }
     }
 

@@ -145,7 +145,7 @@ public class InventoryController : ControllerBase
                 query = query.Where(t => t.MaThuoc.ToString().Contains(maThuoc));
 
             if (!string.IsNullOrEmpty(tenThuoc))
-                query = query.Where(t => t.TenThuoc != null && t.TenThuoc.Contains(tenThuoc, StringComparison.OrdinalIgnoreCase));
+                query = query.Where(t => t.TenThuoc.Contains(tenThuoc));
 
             if (slnDau.HasValue)
                 query = query.Where(t => t.SoLuongNhap >= slnDau.Value);
@@ -170,20 +170,21 @@ public class InventoryController : ControllerBase
             if (chiNhanh.HasValue)
                 query = query.Where(t => t.MaChiNhanh == chiNhanh.Value);
 
+            var medicines = await query.ToListAsync();
+
             if (DateTime.TryParse(hsdDau, out var parsedHsdDau))
-                query = query.Where(t => DateTime.Parse(t.HanSuDung) >= parsedHsdDau);
+                medicines = medicines.Where(t => DateTime.Parse(t.HanSuDung) >= parsedHsdDau).ToList();
 
             if (DateTime.TryParse(hsdCuoi, out var parsedHsdCuoi))
-                query = query.Where(t => DateTime.Parse(t.HanSuDung) <= parsedHsdCuoi);
+                medicines = medicines.Where(t => DateTime.Parse(t.HanSuDung) <= parsedHsdCuoi).ToList();
 
             if (DateTime.TryParse(ngayDau, out var parsedNgayDau))
-                query = query.Where(t => DateTime.Parse(t.NgayNhap) >= parsedNgayDau);
+                medicines = medicines.Where(t => DateTime.Parse(t.NgayNhap) >= parsedNgayDau).ToList();
 
             if (DateTime.TryParse(ngayCuoi, out var parsedNgayCuoi))
-                query = query.Where(t => DateTime.Parse(t.NgayNhap) <= parsedNgayCuoi);
+                medicines = medicines.Where(t => DateTime.Parse(t.NgayNhap) <= parsedNgayCuoi).ToList();
 
 
-            var medicines = await query.ToListAsync();
             return Ok(medicines);
         }
         catch (Exception ex)
@@ -299,7 +300,7 @@ public class InventoryController : ControllerBase
     // Get supplies by search criteria
     [HttpGet("supply/search")]
     public async Task<IActionResult> GetSuppliesBySearch(
-    [FromQuery] int? maVt = null,
+    [FromQuery] string? maVt = null,
     [FromQuery] string? tenVt = null,
     [FromQuery] int? slnDau = null,
     [FromQuery] int? slnCuoi = null,
@@ -317,9 +318,9 @@ public class InventoryController : ControllerBase
             var query = _context.VatTus.AsQueryable();
 
             // Apply filters
-            if (maVt.HasValue)
+            if (!string.IsNullOrEmpty(maVt))
             {
-                query = query.Where(vt => vt.MaVt == maVt.Value);
+                query = query.Where(vt => vt.MaVt.ToString().Contains(maVt));
             }
 
             if (!string.IsNullOrEmpty(tenVt))
@@ -345,15 +346,6 @@ public class InventoryController : ControllerBase
                                           (!giaCuoi.HasValue || vt.DonGiaNhap <= giaCuoi));
             }
 
-            if (!string.IsNullOrEmpty(ngayDau) || !string.IsNullOrEmpty(ngayCuoi))
-            {
-                DateTime? ngayDauDate = !string.IsNullOrEmpty(ngayDau) ? DateTime.Parse(ngayDau) : (DateTime?)null;
-                DateTime? ngayCuoiDate = !string.IsNullOrEmpty(ngayCuoi) ? DateTime.Parse(ngayCuoi) : (DateTime?)null;
-
-                query = query.Where(vt => (!ngayDauDate.HasValue || DateTime.Parse(vt.NgayNhap) >= ngayDauDate) &&
-                                          (!ngayCuoiDate.HasValue || DateTime.Parse(vt.NgayNhap) <= ngayCuoiDate));
-            }
-
             if (maChiNhanh.HasValue)
             {
                 query = query.Where(vt => vt.MaChiNhanh == maChiNhanh.Value);
@@ -361,6 +353,18 @@ public class InventoryController : ControllerBase
 
             // Sort results by MaVt
             var materials = await query.OrderBy(vt => vt.MaVt).ToListAsync();
+
+            if (!string.IsNullOrEmpty(ngayDau) || !string.IsNullOrEmpty(ngayCuoi))
+            {
+                DateTime? ngayDauDate = !string.IsNullOrEmpty(ngayDau) ? DateTime.Parse(ngayDau) : (DateTime?)null;
+                DateTime? ngayCuoiDate = !string.IsNullOrEmpty(ngayCuoi) ? DateTime.Parse(ngayCuoi) : (DateTime?)null;
+
+                if (ngayDauDate.HasValue)
+                    materials = materials.Where(vt => vt.NgayNhap != null && DateTime.Parse(vt.NgayNhap) >= ngayDauDate.Value).ToList();
+
+                if (ngayCuoiDate.HasValue)
+                    materials = materials.Where(vt => vt.NgayNhap != null && DateTime.Parse(vt.NgayNhap) <= ngayCuoiDate.Value).ToList();
+            }
 
             return Ok(new { Success = true, Materials = materials });
         }

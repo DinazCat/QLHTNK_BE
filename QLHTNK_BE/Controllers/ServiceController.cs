@@ -120,7 +120,7 @@ public class ServiceController : ControllerBase
     // Get services by search criteria
     [HttpGet("search")]
     public async Task<IActionResult> GetServicesBySearch(
-        [FromQuery]  int? maDv = null,
+        [FromQuery]  string? maDv = null,
         [FromQuery]  string? tenDv = null,
         [FromQuery] string? loaiDv = null,
         [FromQuery] decimal? giaDau = null,
@@ -132,9 +132,9 @@ public class ServiceController : ControllerBase
             var query = _context.DichVus.AsQueryable();
 
             // Apply filters based on provided criteria
-            if (maDv.HasValue)
+            if (!string.IsNullOrEmpty(maDv))
             {
-                query = query.Where(dv => dv.MaDv == maDv.Value);
+                query = query.Where(dv => dv.MaDv.ToString().Contains(maDv));
             }
 
             if (!string.IsNullOrEmpty(tenDv))

@@ -17,5 +17,7 @@ namespace QLHTNK_BE.Models
         public int? XacNhan { get; set; }
         public string? Token { get; set; }
         public int? MaNV { get; set; }
+
+        public virtual NhanVien? MaNhaSiNavigation { get; set; }
     }
 }

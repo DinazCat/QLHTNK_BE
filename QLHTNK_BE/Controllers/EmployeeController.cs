@@ -244,4 +244,82 @@ public class EmployeeController : ControllerBase
             return StatusCode(500, new { success = false, message = "An error occurred while searching for employees.", Error = ex.Message });
         }
     }
+
+    // Create a new attendance record
+    [HttpPost("Attendance")]
+    public async Task<IActionResult> CreateAttendance([FromBody] ChamCong attendance)
+    {
+        if (attendance == null)
+            return BadRequest(new { Message = "Invalid attendance data." });
+
+        try
+        {
+            _context.ChamCongs.Add(attendance);
+            await _context.SaveChangesAsync();
+            return CreatedAtAction(nameof(GetAttendanceById), new { id = attendance.MaCc }, attendance);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { Message = "An error occurred while creating the attendance record.", Error = ex.Message });
+        }
+    }
+
+    // Update an attendance record
+    [HttpPut("Attendance/{id}")]
+    public async Task<IActionResult> UpdateAttendance(int id, [FromBody] ChamCong attendance)
+    {
+        if (id <= 0 || attendance == null || id != attendance.MaCc)
+            return BadRequest(new { Message = "Invalid data provided." });
+
+        try
+        {
+            _context.Entry(attendance).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            return NotFound(new { Message = "Attendance record not found for update." });
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { Message = "An error occurred while updating the attendance record.", Error = ex.Message });
+        }
+    }
+    // Read all attendance records
+    [HttpGet("Attendance")]
+    public async Task<IActionResult> GetAllAttendances()
+    {
+        try
+        {
+            var attendances = await _context.ChamCongs.ToListAsync();
+            return Ok(attendances);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { Message = "An error occurred while fetching attendance records.", Error = ex.Message });
+        }
+    }
+    // Read a specific attendance record by ID
+    [HttpGet("Attendance/{id}")]
+    public async Task<IActionResult> GetAttendanceById(int id)
+    {
+        if (id <= 0)
+            return BadRequest(new { Message = "Invalid attendance ID." });
+
+        try
+        {
+            var attendance = await _context.ChamCongs.FindAsync(id);
+            if (attendance == null)
+                return NotFound(new { Message = "Attendance record not found." });
+
+            return Ok(attendance);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { Message = "An error occurred while fetching the attendance record.", Error = ex.Message });
+        }
+    }
+
+
 }
