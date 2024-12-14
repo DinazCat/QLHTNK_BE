@@ -56,9 +56,9 @@ public class UserController : ControllerBase
 
     // Read a specific user by ID
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetUserById(string id)
+    public async Task<IActionResult> GetUserById(int id)
     {
-        if (id == "")
+        if (id <= 0)
             return BadRequest(new { Message = "Invalid user ID." });
 
         try
@@ -77,9 +77,9 @@ public class UserController : ControllerBase
 
     // Update a user
     [HttpPut("{id}")]
-    public async Task<IActionResult> UpdateUser(string id, [FromBody] TaiKhoan user)
+    public async Task<IActionResult> UpdateUser(int id, [FromBody] TaiKhoan user)
     {
-        if (id == "" || user == null || id != user.MaTk)
+        if (id <= 0 || user == null || id != user.MaTk)
             return BadRequest(new { Message = "Invalid data provided." });
 
         try

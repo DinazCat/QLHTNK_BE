@@ -175,6 +175,53 @@
   },
   {
     "ContainingType": "AppointmentController",
+    "Method": "CreateDoctorSchedule",
+    "RelativePath": "api/Appointment/DoctorSchedule",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "doctorSchedule",
+        "Type": "QLHTNK_BE.Models.LichLamViec",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentController",
+    "Method": "GetAllDoctorSchedule",
+    "RelativePath": "api/Appointment/DoctorSchedule",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentController",
+    "Method": "UpdateDoctorSchedule",
+    "RelativePath": "api/Appointment/DoctorSchedule/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "doctorSchedule",
+        "Type": "QLHTNK_BE.Models.LichLamViec",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppointmentController",
     "Method": "GetAppointmentsBySearch",
     "RelativePath": "api/Appointment/search",
     "HttpMethod": "GET",
@@ -187,7 +234,7 @@
         "IsRequired": false
       },
       {
-        "Name": "SDT",
+        "Name": "MaBN",
         "Type": "System.String",
         "IsRequired": false
       },
@@ -208,6 +255,16 @@
       },
       {
         "Name": "NgayHen",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "LoaiLichHen",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TrangThai",
         "Type": "System.String",
         "IsRequired": false
       }
@@ -710,6 +767,69 @@
   },
   {
     "ContainingType": "EmployeeController",
+    "Method": "CreateAttendance",
+    "RelativePath": "api/Employee/Attendance",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "attendance",
+        "Type": "QLHTNK_BE.Models.ChamCong",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmployeeController",
+    "Method": "GetAllAttendances",
+    "RelativePath": "api/Employee/Attendance",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmployeeController",
+    "Method": "UpdateAttendance",
+    "RelativePath": "api/Employee/Attendance/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "attendance",
+        "Type": "QLHTNK_BE.Models.ChamCong",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmployeeController",
+    "Method": "GetAttendanceById",
+    "RelativePath": "api/Employee/Attendance/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmployeeController",
     "Method": "GetEmployeesBySearch",
     "RelativePath": "api/Employee/search",
     "HttpMethod": "GET",
@@ -1160,7 +1280,7 @@
     "Parameters": [
       {
         "Name": "maVt",
-        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "System.String",
         "IsRequired": false
       },
       {
@@ -1536,7 +1656,7 @@
     "Parameters": [
       {
         "Name": "maDv",
-        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "System.String",
         "IsRequired": false
       },
       {
@@ -1598,7 +1718,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.String",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -1614,7 +1734,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.String",
+        "Type": "System.Int32",
         "IsRequired": true
       },
       {

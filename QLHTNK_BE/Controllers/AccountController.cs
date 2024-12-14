@@ -78,7 +78,7 @@ namespace QLHTNK_BE.Controllers
                                     </html>";
                 try
                 {
-                    await _emailSender.SendEmailAsync(user.Email, "Email confirmation", emailBody);
+                    //await _emailSender.SendEmailAsync(user.Email, "Email confirmation", emailBody);
                 }
                 catch (SmtpException smtpEx)
                 {

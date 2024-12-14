@@ -29,31 +29,39 @@ public class EmployeeController : ControllerBase
         {
             _context.NhanViens.Add(employee);
             await _context.SaveChangesAsync();
-            DateTime birthDate = DateTime.Parse(employee?.NgaySinh);
-
-            // Tính năm sinh
-            int birthYear = birthDate.Year;
-
-            // Lấy năm hiện tại
-            int currentYear = DateTime.Now.Year;
-
-            // Tính tuổi
-            int age = currentYear - birthYear;
-
-            TaiKhoan acc = new()
+            if (employee?.MaNv != null)
             {
-                MaNguoiDung = employee?.Cccd,
-                Ten = employee?.TenNv,
-                SoDienThoai = employee?.SoDienThoai,
-                Tuoi = age,
-                Email = employee?.Email,
-                MatKhau = "123456",
-                LoaiNguoiDung = employee?.ChucVu,
-                XacNhan = 1,
-                MaNV = employee?.MaNv
-            };
-            _context.TaiKhoans.Add(acc);
-            await _context.SaveChangesAsync();
+                DateTime birthDate = DateTime.Parse(employee?.NgaySinh);
+
+                // Tính năm sinh
+                int birthYear = birthDate.Year;
+
+                // Lấy năm hiện tại
+                int currentYear = DateTime.Now.Year;
+
+                // Tính tuổi
+                int age = currentYear - birthYear;
+
+                TaiKhoan acc = new()
+                {
+                    MaNguoiDung = employee?.Cccd,
+                    Ten = employee?.TenNv,
+                    SoDienThoai = employee?.SoDienThoai,
+                    Tuoi = age,
+                    Email = employee?.Email,
+                    MatKhau = "123456",
+                    LoaiNguoiDung = employee?.ChucVu,
+                    XacNhan = 1,
+                    MaNV = employee?.MaNv
+                };
+                if (!string.IsNullOrEmpty(acc.MaNguoiDung) &&
+    !string.IsNullOrEmpty(acc.Ten) &&
+    !string.IsNullOrEmpty(acc.Email))
+                {
+                    _context.TaiKhoans.Add(acc);
+                    await _context.SaveChangesAsync();
+                }
+            }
             return CreatedAtAction(nameof(GetEmployeeById), new { id = employee.MaNv }, employee);
         }
         catch (Exception ex)

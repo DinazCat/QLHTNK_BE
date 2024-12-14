@@ -267,12 +267,13 @@ namespace QLHTNK_BE.Models
                     .HasForeignKey(d => d.MaDv)
                     .HasConstraintName("FK__DichVuDaSu__MaDV__5629CD9C");
             });
-
+       
             modelBuilder.Entity<GiamGia>(entity =>
             {
+                entity.ToTable("GiamGia");
                 entity.HasKey(e => e.MaGiamGia)
                     .HasName("PK__GiamGia__EF9458E458B76513");
-
+            
                 entity.Property(e => e.An).HasDefaultValueSql("((0))");
 
                 entity.Property(e => e.DieuKienApDung).HasMaxLength(255);
@@ -518,7 +519,7 @@ namespace QLHTNK_BE.Models
 
                 entity.Property(e => e.MaTk)
                     .HasColumnName("MaTK")
-                    .HasDefaultValueSql("NEWID()"); // Tạo UUID mặc định cho MaTk
+                     .ValueGeneratedOnAdd(); // Tạo UUID mặc định cho MaTk
                 entity.Property(e => e.XacNhan)
                     .HasColumnName("XacNhan")
                     .HasDefaultValue(0);

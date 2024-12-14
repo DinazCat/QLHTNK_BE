@@ -6,7 +6,7 @@ namespace QLHTNK_BE.Models
 {
     public partial class TaiKhoan : IdentityUser
     {
-        public string? MaTk { get; set; }
+        public int? MaTk { get; set; }
         public string? MaNguoiDung { get; set; }
         public string? Ten { get; set; }
         public string? SoDienThoai { get; set; }
