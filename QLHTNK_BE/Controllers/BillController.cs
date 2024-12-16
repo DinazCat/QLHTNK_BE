@@ -192,9 +192,7 @@ public class HoaDonController : ControllerBase
             // Filter by NgayLap if provided
             if (!string.IsNullOrWhiteSpace(ngayLap))
             {
-                query = query.Where(bill =>
-                    string.Equals(bill.NgayLap.Trim(), ngayLap.Trim(), StringComparison.OrdinalIgnoreCase)
-                );
+                query = query.Where(bill => bill.NgayLap == ngayLap);
             }
 
             // Filter by TinhTrang if not "Tất cả"

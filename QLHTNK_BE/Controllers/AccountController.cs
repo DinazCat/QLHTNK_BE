@@ -64,7 +64,7 @@ namespace QLHTNK_BE.Controllers
                                     {"email",user.Email }
                                 };
                 Console.WriteLine("Hello, World!3");
-                var callback = QueryHelpers.AddQueryString("http://192.168.1.74:3000/confirm_email", param);
+                var callback = QueryHelpers.AddQueryString("http://192.168.1.88:3000/confirm_email", param);
                 var emailBody = $@"
                                     <html>
                                     <body>
@@ -78,7 +78,7 @@ namespace QLHTNK_BE.Controllers
                                     </html>";
                 try
                 {
-                    //await _emailSender.SendEmailAsync(user.Email, "Email confirmation", emailBody);
+                    await _emailSender.SendEmailAsync(user.Email, "Email confirmation", emailBody);
                 }
                 catch (SmtpException smtpEx)
                 {
@@ -144,7 +144,7 @@ namespace QLHTNK_BE.Controllers
         </html>";
             try
             {
-                //await _emailSender.SendEmailAsync(user.Email, "Reset Password", emailBody);
+                await _emailSender.SendEmailAsync(user.Email, "Reset Password", emailBody);
                 return Ok(new { Success = true, Email = email, Code = code });
             }
             catch (Exception ex)
