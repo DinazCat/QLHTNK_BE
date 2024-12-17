@@ -157,7 +157,7 @@ public class AppointmentController : ControllerBase
             // Filter by TenBN (patient name)
             if (!string.IsNullOrEmpty(TenBN))
             {
-                appointmentsQuery = appointmentsQuery.Where(a => a.MaBnNavigation.TenBn.ToLower().Contains(TenBN.ToLower()));
+                appointmentsQuery = appointmentsQuery.Where(a => a.HoTen.Contains(TenBN.ToLower()));
             }
 
             // Filter by DichVu (service)
